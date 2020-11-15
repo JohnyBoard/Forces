@@ -36,6 +36,11 @@ namespace Forces
             return new Vector(v.X * n, v.Y * n);
         }
 
+        public static Vector operator *(Vector a, Vector b)
+        {
+            return new Vector(a.X * b.X, a.Y * b.Y);
+        }
+
         public static Vector operator /(Vector v, double n)
         {
             return v * (1 / n);

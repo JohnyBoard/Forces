@@ -16,4 +16,4 @@ namespace Test
             Assert.AreEqual(new Vector(), sum);
         }
     }
-}
+} 
