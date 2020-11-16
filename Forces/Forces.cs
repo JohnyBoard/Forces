@@ -25,7 +25,7 @@ namespace Forces
             ball = new Ball(R = new Vector(0, 0), V = new Vector(0, 10), M);
             string[] Areas = { "Milk", "Mercury", "Water", "Kerosene", "Petrol", "Oil", "Acetone", "Honey" };
             lbArea.Items.AddRange(Areas);
-            string[] Objects = { "Gold", "Lead", "Silver", "Porcelain", "Ice" };
+            string[] Objects = { "Gold", "Lead", "Silver", "Porcelain", "Ice", "Baby Yoda" };
             lbObject.Items.AddRange(Objects);
         }
 
@@ -68,12 +68,17 @@ namespace Forces
                     objectDensity = 900;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Ice.png");
                     break;
+                case "Baby Yoda":
+                    objectDensity = 1000;
+                    pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Baby Yoda.png");
+                    break;
             }
         }
 
         private void tbVolume_Scroll(object sender, EventArgs e)
         {
             ball.Volume = tbVolume.Value;
+            pbBall.Size = new Size(pbBall.Width += Convert.ToInt32(ball.Volume) / 100, pbBall.Height += Convert.ToInt32(ball.Volume) / 100);
         }
 
         private void lbArea_SelectedIndexChanged(object sender, EventArgs e)
