@@ -31,18 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Forces));
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp = new System.Windows.Forms.TableLayoutPanel();
             this.pnlOptions = new System.Windows.Forms.Panel();
             this.lbArea = new System.Windows.Forms.ListBox();
             this.button = new System.Windows.Forms.Button();
             this.tbVolume = new System.Windows.Forms.TrackBar();
-            this.tbMass = new System.Windows.Forms.TrackBar();
             this.pnlField = new System.Windows.Forms.Panel();
             this.pbBall = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.lbObject = new System.Windows.Forms.ListBox();
+            this.tlp.SuspendLayout();
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbVolume)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbMass)).BeginInit();
             this.pnlField.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBall)).BeginInit();
             this.SuspendLayout();
@@ -52,29 +51,29 @@
             this.timer.Interval = 33;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // tableLayoutPanel1
+            // tlp
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.Controls.Add(this.pnlOptions, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pnlField, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlp.BackColor = System.Drawing.Color.White;
+            this.tlp.ColumnCount = 2;
+            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tlp.Controls.Add(this.pnlOptions, 0, 0);
+            this.tlp.Controls.Add(this.pnlField, 1, 0);
+            this.tlp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp.Location = new System.Drawing.Point(0, 0);
+            this.tlp.Name = "tableLayoutPanel1";
+            this.tlp.RowCount = 1;
+            this.tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlp.Size = new System.Drawing.Size(800, 450);
+            this.tlp.TabIndex = 0;
             // 
             // pnlOptions
             // 
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pnlOptions.Controls.Add(this.lbObject);
             this.pnlOptions.Controls.Add(this.lbArea);
             this.pnlOptions.Controls.Add(this.button);
             this.pnlOptions.Controls.Add(this.tbVolume);
-            this.pnlOptions.Controls.Add(this.tbMass);
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOptions.Location = new System.Drawing.Point(3, 3);
             this.pnlOptions.Name = "pnlOptions";
@@ -84,7 +83,7 @@
             // lbArea
             // 
             this.lbArea.FormattingEnabled = true;
-            this.lbArea.Location = new System.Drawing.Point(9, 84);
+            this.lbArea.Location = new System.Drawing.Point(9, 38);
             this.lbArea.Name = "lbArea";
             this.lbArea.Size = new System.Drawing.Size(133, 95);
             this.lbArea.TabIndex = 3;
@@ -105,7 +104,7 @@
             // 
             // tbVolume
             // 
-            this.tbVolume.Location = new System.Drawing.Point(10, 49);
+            this.tbVolume.Location = new System.Drawing.Point(9, 3);
             this.tbVolume.Maximum = 1000;
             this.tbVolume.Minimum = 1;
             this.tbVolume.Name = "tbVolume";
@@ -113,17 +112,6 @@
             this.tbVolume.TabIndex = 1;
             this.tbVolume.Value = 1;
             this.tbVolume.Scroll += new System.EventHandler(this.tbVolume_Scroll);
-            // 
-            // tbMass
-            // 
-            this.tbMass.Location = new System.Drawing.Point(10, 10);
-            this.tbMass.Maximum = 1000;
-            this.tbMass.Minimum = 1;
-            this.tbMass.Name = "tbMass";
-            this.tbMass.Size = new System.Drawing.Size(130, 45);
-            this.tbMass.TabIndex = 0;
-            this.tbMass.Value = 1;
-            this.tbMass.Scroll += new System.EventHandler(this.tbMass_Scroll);
             // 
             // pnlField
             // 
@@ -144,19 +132,27 @@
             this.pbBall.TabIndex = 0;
             this.pbBall.TabStop = false;
             // 
+            // lbObject
+            // 
+            this.lbObject.FormattingEnabled = true;
+            this.lbObject.Location = new System.Drawing.Point(9, 139);
+            this.lbObject.Name = "lbObject";
+            this.lbObject.Size = new System.Drawing.Size(133, 95);
+            this.lbObject.TabIndex = 4;
+            this.lbObject.SelectedIndexChanged += new System.EventHandler(this.lbObject_SelectedIndexChanged);
+            // 
             // Forces
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tlp);
             this.Name = "Forces";
             this.Text = "Forces";
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tlp.ResumeLayout(false);
             this.pnlOptions.ResumeLayout(false);
             this.pnlOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbVolume)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbMass)).EndInit();
             this.pnlField.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbBall)).EndInit();
             this.ResumeLayout(false);
@@ -166,13 +162,13 @@
         #endregion
 
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlp;
         private System.Windows.Forms.Panel pnlOptions;
         private System.Windows.Forms.TrackBar tbVolume;
-        private System.Windows.Forms.TrackBar tbMass;
         private System.Windows.Forms.Panel pnlField;
         private System.Windows.Forms.PictureBox pbBall;
         private System.Windows.Forms.Button button;
         private System.Windows.Forms.ListBox lbArea;
+        private System.Windows.Forms.ListBox lbObject;
     }
 }
