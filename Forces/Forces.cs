@@ -14,7 +14,7 @@ namespace Forces
     {
         public Vector Gravity = new Vector();
         public Vector Buyoancy = new Vector();
-        Vector G = new Vector(980, 980);
+        Vector G = new Vector(1, 980);
         Ball ball;  
         public double areaDensity = 1, objectDensity = 1, M = 1;
         Vector R, V;
