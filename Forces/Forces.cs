@@ -23,9 +23,9 @@ namespace Forces
         {
             InitializeComponent();
             ball = new Ball(R = new Vector(0, 0), V = new Vector(0, 10), M);
-            string[] Areas = { "Milk", "Mercury", "Water", "Kerosene", "Petrol", "Oil", "Acetone", "Honey" };
+            string[] Areas = { "Milk", "Mercury", "Water", "Kerosene", "Petrol", "Oil", "Acetone", "Honey", "Air", "Oxygen" };
             lbArea.Items.AddRange(Areas);
-            string[] Objects = { "Gold", "Lead", "Silver", "Porcelain", "Ice", "Baby Yoda" };
+            string[] Objects = { "Gold", "Lead", "Silver", "Porcelain", "Ice", "Brick", "Platinum", "Baby Yoda" };
             lbObject.Items.AddRange(Objects);
         }
 
@@ -49,27 +49,35 @@ namespace Forces
             switch (lbObject.SelectedItem)
             {
                 case "Gold":
-                    objectDensity = 19300;
+                    objectDensity = 1930000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Gold.png");
                     break;
                 case "Lead":
-                    objectDensity = 11300;
+                    objectDensity = 1130000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Lead.png");
                     break;
                 case "Silver":
-                    objectDensity = 10500;
+                    objectDensity = 1050000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Silver.png");
                     break;
                 case "Porcelain":
-                    objectDensity = 2300;
+                    objectDensity = 230000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Porcelain.png");
                     break;
                 case "Ice":
-                    objectDensity = 900;
+                    objectDensity = 90000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Ice.png");
                     break;
+                case "Brick":
+                    objectDensity = 180000;
+                    pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Brick.png");
+                    break;
+                case "Platinum":
+                    objectDensity = 2350000;
+                    pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Platinum.png");
+                    break;
                 case "Baby Yoda":
-                    objectDensity = 1000;
+                    objectDensity = 100000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Baby Yoda.png");
                     break;
             }
@@ -86,36 +94,44 @@ namespace Forces
             switch(lbArea.SelectedItem)
             {
                 case "Milk":
-                    areaDensity = 1040;
+                    areaDensity = 104000;
                     pnlField.BackColor = Color.White;
                     break;
                 case "Mercury":
-                    areaDensity = 13600;
+                    areaDensity = 1360000;
                     pnlField.BackColor = Color.Gray;
                     break;
                 case "Water":
-                    areaDensity = 1000;
+                    areaDensity = 100000;
                     pnlField.BackColor = Color.Aqua;
                     break;
                 case "Kerosene":
-                    areaDensity = 820;
+                    areaDensity = 82000;
                     pnlField.BackColor = Color.GreenYellow;
                     break;
                 case "Petrol":
-                    areaDensity = 710;
+                    areaDensity = 71000;
                     pnlField.BackColor = Color.Purple;
                     break;
                 case "Oil":
-                    areaDensity = 800;
+                    areaDensity = 80000;
                     pnlField.BackColor = Color.Black;
                     break;
                 case "Acetone":
-                    areaDensity = 792;
+                    areaDensity = 79200;
                     pnlField.BackColor = Color.Brown;
                     break;
                 case "Honey":
-                    areaDensity = 1350;
+                    areaDensity = 135000;
                     pnlField.BackColor = Color.Orange;
+                    break;
+                case "Air":
+                    areaDensity = 1290;
+                    pnlField.BackColor = Color.Gray;
+                    break;
+                case "Oxygen":
+                    areaDensity = 1430;
+                    pnlField.BackColor = Color.LightGray;
                     break;
             }            
         }
