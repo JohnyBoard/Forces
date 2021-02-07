@@ -16,40 +16,19 @@ namespace Forces
             Y = y;
         }
 
-        public static Vector operator +(Vector a, Vector b)
-        {
-            return new Vector(a.X + b.X, a.Y + b.Y);
-        }
+        public static Vector operator +(Vector a, Vector b) => new Vector(a.X + b.X, a.Y + b.Y);
 
-        public static Vector operator -(Vector v)
-        {
-            return new Vector(-v.X, -v.Y);
-        }
+        public static Vector operator -(Vector v) => new Vector(-v.X, -v.Y);
 
-        public static Vector operator -(Vector a, Vector b)
-        {
-            return a + -b;
-        }
+        public static Vector operator -(Vector a, Vector b) => a + -b;
+        
+        public static Vector operator *(Vector v, double n) => new Vector(v.X * n, v.Y * n);
 
-        public static Vector operator *(Vector v, double n)
-        {
-            return new Vector(v.X * n, v.Y * n);
-        }
+        public static Vector operator *(Vector a, Vector b) => new Vector(a.X * b.X, a.Y * b.Y);
 
-        public static Vector operator *(Vector a, Vector b)
-        {
-            return new Vector(a.X * b.X, a.Y * b.Y);
-        }
+        public static Vector operator /(Vector v, double n) => v * (1 / n);
 
-        public static Vector operator /(Vector v, double n)
-        {
-            return v * (1 / n);
-        }
-
-        public static Vector operator *(double n, Vector v)
-        {
-            return v * n;
-        }
+        public static Vector operator *(double n, Vector v) => v * n;
 
         public double X { get; set; }
 
