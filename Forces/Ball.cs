@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -32,9 +32,6 @@ namespace Forces
             Move(dt);
         }
 
-        public void Move(double dt)
-        {
-            R += V * dt;
-        }
+        public void Move(double dt) => R += V * dt;
     }
 }
