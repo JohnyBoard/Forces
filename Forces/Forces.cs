@@ -6,7 +6,7 @@ namespace Forces
 {
     public partial class Forces : Form
     {
-        public Vector Gravity = new Vector(), Buyoancy = new Vector(), R, V, G = new Vector(1, 980);
+        public Vector Gravity = new Vector(), Buyoancy = new Vector(), R, V, G = new Vector(0, 980);
         public double areaDensity = 1, objectDensity = 1, M = 1;
         Ball ball;          
 
