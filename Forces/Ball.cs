@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Forces
+﻿namespace Forces
 {
     public class Ball
     {
         private double v;
+
         public Ball(Vector r, Vector v, double m)
         {
             R = r;
@@ -32,9 +26,6 @@ namespace Forces
             Move(dt);
         }
 
-        public void Move(double dt)
-        {
-            R += V * dt;
-        }
+        public void Move(double dt) => R += V * dt;
     }
 }

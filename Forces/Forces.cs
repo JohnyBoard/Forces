@@ -1,31 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Forces
 {
     public partial class Forces : Form
     {
-        public Vector Gravity = new Vector();
-        public Vector Buyoancy = new Vector();
-        Vector G = new Vector(1, 980);
-        Ball ball;  
+        public Vector Gravity = new Vector(), Buyoancy = new Vector(), R, V, G = new Vector(1, 980);
         public double areaDensity = 1, objectDensity = 1, M = 1;
-        Vector R, V;
+        Ball ball;          
 
         public Forces()
         {
             InitializeComponent();
             ball = new Ball(R = new Vector(0, 0), V = new Vector(0, 10), M);
-            string[] Areas = { "Milk", "Mercury", "Water", "Kerosene", "Petrol", "Oil", "Acetone", "Honey", "Air", "Oxygen" };
+            string[] Areas = { "Молоко", "Ртуть", "Вода", "Керосин", "Бензин", "Нефть", "Ацетон", "Мёд", "Воздух", "Кислород" };
             lbArea.Items.AddRange(Areas);
-            string[] Objects = { "Gold", "Lead", "Silver", "Porcelain", "Ice", "Brick", "Platinum", "Baby Yoda" };
+            string[] Objects = { "Золото", "Свинец", "Серебро", "Фарфор", "Лёд", "Кирпич", "Платина", "Малыш Йода" };
             lbObject.Items.AddRange(Objects);
         }
 
@@ -48,35 +39,35 @@ namespace Forces
         {
             switch (lbObject.SelectedItem)
             {
-                case "Gold":
+                case "Золото":
                     objectDensity = 1930000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Gold.png");
                     break;
-                case "Lead":
+                case "Свинец":
                     objectDensity = 1130000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Lead.png");
                     break;
-                case "Silver":
+                case "Серебро":
                     objectDensity = 1050000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Silver.png");
                     break;
-                case "Porcelain":
+                case "Фарфор":
                     objectDensity = 230000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Porcelain.png");
                     break;
-                case "Ice":
+                case "Лёд":
                     objectDensity = 90000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Ice.png");
                     break;
-                case "Brick":
+                case "Кирпич":
                     objectDensity = 180000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Brick.png");
                     break;
-                case "Platinum":
+                case "Платина":
                     objectDensity = 2350000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Platinum.png");
                     break;
-                case "Baby Yoda":
+                case "Малыш Йода":
                     objectDensity = 100000;
                     pbBall.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Baby Yoda.png");
                     break;
@@ -93,43 +84,43 @@ namespace Forces
         {
             switch(lbArea.SelectedItem)
             {
-                case "Milk":
+                case "Молоко":
                     areaDensity = 104000;
                     pnlField.BackColor = Color.White;
                     break;
-                case "Mercury":
+                case "Ртуть":
                     areaDensity = 1360000;
                     pnlField.BackColor = Color.Gray;
                     break;
-                case "Water":
+                case "Вода":
                     areaDensity = 100000;
                     pnlField.BackColor = Color.Aqua;
                     break;
-                case "Kerosene":
+                case "Керосин":
                     areaDensity = 82000;
                     pnlField.BackColor = Color.GreenYellow;
                     break;
-                case "Petrol":
+                case "Бензин":
                     areaDensity = 71000;
                     pnlField.BackColor = Color.Purple;
                     break;
-                case "Oil":
+                case "Нефть":
                     areaDensity = 80000;
                     pnlField.BackColor = Color.Black;
                     break;
-                case "Acetone":
+                case "Ацетон":
                     areaDensity = 79200;
                     pnlField.BackColor = Color.Brown;
                     break;
-                case "Honey":
+                case "Мёд":
                     areaDensity = 135000;
                     pnlField.BackColor = Color.Orange;
                     break;
-                case "Air":
+                case "Воздух" :
                     areaDensity = 1290;
                     pnlField.BackColor = Color.Gray;
                     break;
-                case "Oxygen":
+                case "Кислород":
                     areaDensity = 1430;
                     pnlField.BackColor = Color.LightGray;
                     break;
