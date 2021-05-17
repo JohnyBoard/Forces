@@ -124,15 +124,15 @@ namespace Forces
             {
                 case "Золото":
                     objectDensity = 1930;
-                    pbItem.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Gold.png");
+                    pbItem.Image = Image.FromFile(@"Images\Gold.png");
                     break;
                 case "Свинец":
                     objectDensity = 1130;
-                    pbItem.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Lead.png");
+                    pbItem.Image = Image.FromFile(@"Images\Lead.png");
                     break;
                 case "Серебро":
                     objectDensity = 1050;
-                    pbItem.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Silver.png");
+                    pbItem.Image = Image.FromFile(@"Images\Silver.png");
                     break;
                 case "Фарфор":
                     objectDensity = 2300;
@@ -178,8 +178,12 @@ namespace Forces
             Gravity = item.Mass * G;
             Buyoancy = -(areaDensity * G) * item.Volume;
             timer.Start();
-        }       
+        }
 
-        private void tbVolume_Scroll(object sender, EventArgs e) => item.Volume = tbVolume.Value;
+        private void tbVolume_Scroll(object sender, EventArgs e)
+        {
+            //изменение размера
+            item.Volume = tbVolume.Value;
+        }
     }
 }

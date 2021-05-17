@@ -20,7 +20,7 @@
 
         public void Move(double dt, Vector F)
         {
-            Vector a = F / Mass;
+                Vector a = F / Mass;
             Speed += a * dt;
             Move(dt);
         }
