@@ -33,17 +33,18 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.tlp = new System.Windows.Forms.TableLayoutPanel();
             this.pnlOptions = new System.Windows.Forms.Panel();
-            this.lbArea = new System.Windows.Forms.ListBox();
+            this.cbItems = new System.Windows.Forms.ComboBox();
+            this.cbAreas = new System.Windows.Forms.ComboBox();
             this.button = new System.Windows.Forms.Button();
             this.tbVolume = new System.Windows.Forms.TrackBar();
             this.pnlField = new System.Windows.Forms.Panel();
-            this.pbBall = new System.Windows.Forms.PictureBox();
-            this.lbObject = new System.Windows.Forms.ListBox();
+            this.pbItem = new System.Windows.Forms.PictureBox();
+            this.cbPlanets = new System.Windows.Forms.ComboBox();
             this.tlp.SuspendLayout();
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbVolume)).BeginInit();
             this.pnlField.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBall)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItem)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
@@ -61,7 +62,7 @@
             this.tlp.Controls.Add(this.pnlField, 1, 0);
             this.tlp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlp.Location = new System.Drawing.Point(0, 0);
-            this.tlp.Name = "tableLayoutPanel1";
+            this.tlp.Name = "tlp";
             this.tlp.RowCount = 1;
             this.tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlp.Size = new System.Drawing.Size(800, 450);
@@ -70,8 +71,9 @@
             // pnlOptions
             // 
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.pnlOptions.Controls.Add(this.lbObject);
-            this.pnlOptions.Controls.Add(this.lbArea);
+            this.pnlOptions.Controls.Add(this.cbPlanets);
+            this.pnlOptions.Controls.Add(this.cbItems);
+            this.pnlOptions.Controls.Add(this.cbAreas);
             this.pnlOptions.Controls.Add(this.button);
             this.pnlOptions.Controls.Add(this.tbVolume);
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -80,14 +82,23 @@
             this.pnlOptions.Size = new System.Drawing.Size(154, 444);
             this.pnlOptions.TabIndex = 1;
             // 
-            // lbArea
+            // cbItems
             // 
-            this.lbArea.FormattingEnabled = true;
-            this.lbArea.Location = new System.Drawing.Point(9, 38);
-            this.lbArea.Name = "lbArea";
-            this.lbArea.Size = new System.Drawing.Size(133, 95);
-            this.lbArea.TabIndex = 3;
-            this.lbArea.SelectedIndexChanged += new System.EventHandler(this.lbArea_SelectedIndexChanged);
+            this.cbItems.FormattingEnabled = true;
+            this.cbItems.Location = new System.Drawing.Point(10, 69);
+            this.cbItems.Name = "cbItems";
+            this.cbItems.Size = new System.Drawing.Size(133, 21);
+            this.cbItems.TabIndex = 6;
+            this.cbItems.SelectedIndexChanged += new System.EventHandler(this.cbItems_SelectedIndexChanged);
+            // 
+            // cbAreas
+            // 
+            this.cbAreas.FormattingEnabled = true;
+            this.cbAreas.Location = new System.Drawing.Point(10, 42);
+            this.cbAreas.Name = "cbAreas";
+            this.cbAreas.Size = new System.Drawing.Size(133, 21);
+            this.cbAreas.TabIndex = 5;
+            this.cbAreas.SelectedIndexChanged += new System.EventHandler(this.cbAreas_SelectedIndexChanged);
             // 
             // button
             // 
@@ -115,31 +126,31 @@
             // 
             // pnlField
             // 
-            this.pnlField.Controls.Add(this.pbBall);
+            this.pnlField.Controls.Add(this.pbItem);
             this.pnlField.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlField.Location = new System.Drawing.Point(163, 3);
             this.pnlField.Name = "pnlField";
             this.pnlField.Size = new System.Drawing.Size(634, 444);
             this.pnlField.TabIndex = 0;
             // 
-            // pbBall
+            // pbItem
             // 
-            this.pbBall.Image = ((System.Drawing.Image)(resources.GetObject("pbBall.Image")));
-            this.pbBall.Location = new System.Drawing.Point(260, 180);
-            this.pbBall.Name = "pbBall";
-            this.pbBall.Size = new System.Drawing.Size(77, 73);
-            this.pbBall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBall.TabIndex = 0;
-            this.pbBall.TabStop = false;
+            this.pbItem.Image = ((System.Drawing.Image)(resources.GetObject("pbItem.Image")));
+            this.pbItem.Location = new System.Drawing.Point(3, 9);
+            this.pbItem.Name = "pbItem";
+            this.pbItem.Size = new System.Drawing.Size(77, 73);
+            this.pbItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbItem.TabIndex = 0;
+            this.pbItem.TabStop = false;
             // 
-            // lbObject
+            // cbPlanets
             // 
-            this.lbObject.FormattingEnabled = true;
-            this.lbObject.Location = new System.Drawing.Point(9, 139);
-            this.lbObject.Name = "lbObject";
-            this.lbObject.Size = new System.Drawing.Size(133, 95);
-            this.lbObject.TabIndex = 4;
-            this.lbObject.SelectedIndexChanged += new System.EventHandler(this.lbObject_SelectedIndexChanged);
+            this.cbPlanets.FormattingEnabled = true;
+            this.cbPlanets.Location = new System.Drawing.Point(10, 96);
+            this.cbPlanets.Name = "cbPlanets";
+            this.cbPlanets.Size = new System.Drawing.Size(133, 21);
+            this.cbPlanets.TabIndex = 7;
+            this.cbPlanets.SelectedIndexChanged += new System.EventHandler(this.cbPlanets_SelectedIndexChanged);
             // 
             // Forces
             // 
@@ -154,7 +165,7 @@
             this.pnlOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbVolume)).EndInit();
             this.pnlField.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbBall)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,9 +177,10 @@
         private System.Windows.Forms.Panel pnlOptions;
         private System.Windows.Forms.TrackBar tbVolume;
         private System.Windows.Forms.Panel pnlField;
-        private System.Windows.Forms.PictureBox pbBall;
+        private System.Windows.Forms.PictureBox pbItem;
         private System.Windows.Forms.Button button;
-        private System.Windows.Forms.ListBox lbArea;
-        private System.Windows.Forms.ListBox lbObject;
+        private System.Windows.Forms.ComboBox cbItems;
+        private System.Windows.Forms.ComboBox cbAreas;
+        private System.Windows.Forms.ComboBox cbPlanets;
     }
 }

@@ -1,31 +1,30 @@
 ﻿namespace Forces
 {
-    public class Ball
+    public class Item
     {
-        private double v;
-
-        public Ball(Vector r, Vector v, double m)
+        public Item(Vector r, Vector speed, double mass, double volume)
         {
             R = r;
-            V = v;
-            M = m;
+            Speed = Speed;
+            Mass = mass;
+            Volume = volume;
         }
 
         public Vector R { get; set; }
 
-        public Vector V { get; set; }
+        public Vector Speed { get; set; }
              
         public double Volume { get; set; }
 
-        public double M { get; set; }
+        public double Mass { get; set; }
 
         public void Move(double dt, Vector F)
         {
-            Vector a = F / M;
-            V += a * dt;
+            Vector a = F / Mass;
+            Speed += a * dt;
             Move(dt);
         }
 
-        public void Move(double dt) => R += V * dt;
+        public void Move(double dt) => R += Speed * dt;
     }
 }
