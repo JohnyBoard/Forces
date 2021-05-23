@@ -1,31 +1,35 @@
-﻿namespace Forces
+﻿public class Vector
 {
-    public class Vector
+    public Vector() : this(0, 0) { }
+
+    public Vector(int x, int y)
     {
-        public Vector() : this(0, 0) { }
-
-        public Vector(double x, double y)
-        {
-            X = x;
-            Y = y;
-        }
-
-        public static Vector operator +(Vector a, Vector b) => new Vector(a.X + b.X, a.Y + b.Y);
-
-        public static Vector operator -(Vector v) => new Vector(-v.X, -v.Y);
-
-        public static Vector operator -(Vector a, Vector b) => a + -b;
-        
-        public static Vector operator *(Vector v, double n) => new Vector(v.X * n, v.Y * n);
-
-        public static Vector operator *(Vector a, Vector b) => new Vector(a.X * b.X, a.Y * b.Y);
-
-        public static Vector operator /(Vector v, double n) => v * (1 / n);
-
-        public static Vector operator *(double n, Vector v) => v * n;
-
-        public double X { get; set; }
-
-        public double Y { get; set; }
+        X = x;
+        Y = y;
     }
+
+    public Vector Projection(Vector onVector) => this * onVector / onVector.SquareAbs * onVector;
+
+    public override string ToString() => $"({X};{Y})";
+
+    public static Vector operator +(Vector a, Vector b) => new Vector(a.X + b.X, a.Y + b.Y);
+
+    public static Vector operator -(Vector v) => new Vector(-v.X, -v.Y);
+
+    public static Vector operator -(Vector a, Vector b) => a + -b;
+
+    public static Vector operator *(Vector v, int n) => new Vector(v.X * n, v.Y * n);
+
+    public static Vector operator *(int n, Vector v) => v * n;
+
+    public static int operator *(Vector a, Vector b) => a.X * b.X + a.Y * b.Y;
+
+    public int X { get; set; }
+
+    public int Y { get; set; }
+
+    public int SquareAbs => this * this;
+
+    public int Abs => (int)Math.Round(Math.Sqrt(SquareAbs));
+
 }
