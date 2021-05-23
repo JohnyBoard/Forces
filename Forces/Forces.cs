@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,32 +10,31 @@ namespace Forces
         public Vector Gravity = new Vector(), Buyoancy = new Vector(), R, V, G = new Vector(0, 981);
         public double areaDensity = 1, itemDensity = 1;  
         Item item;
-
-        private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e) => G = new Vector(0, Falling((string)cbPlanets.SelectedItem));
-
-        public int Falling(string s)
+        private Dictionary<string, int> PlanetG = new Dictionary<string, int>
         {
-            switch(s)
-            {
-                case "Земля": return 981;
-                case "Луна": return 162;
-                case "Венера": return 88;
-                case "Юпитер": return 2480;
-                case "Уран": return 886;
-                case "Эрида": return 84;
-                case "Солнце": return 27310;
-                case "Меркурий": return 370;
-                case "Марс": return 386;
-                case "Сатурн": return 1044;
-                case "Нептун": return 1109;
-                case "Плутон": return 61;
-                case "Европа": return 131;
-                case "Ганимед": return 142;
-                case "Титан": return 135;
-                case "Тритон": return 77;
-                default: return 180;
-            }
-        }
+                ["Земля"] = 981,
+                ["Луна"] = 162,
+                ["Венера"] = 88,
+                ["Юпитер"] = 2480,
+                ["Уран"] = 886,
+                ["Эрида"] = 84,
+                ["Солнце"] = 27310,
+                ["Меркурий"] = 370,
+                ["Марс"] = 386,
+                ["Сатурн"] = 1044,
+                ["Нептун"] = 1109,
+                ["Плутон"] = 61,
+                ["Европа"] = 131,
+                ["Ганимед"] = 142,
+                ["Титан"] = 135,
+                ["Тритон"] = 77
+        };
+
+        private PhysItem[] items; //={...}
+        private PhysArea[] areas; //={...}
+
+        private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e) => G = new Vector(0, PlanetG[(string)cbPlanets.SelectedItem]);
+
 
         private void cbAreas_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -126,7 +126,13 @@ namespace Forces
             cbAreas.Items.AddRange(Areas);
             string[] Items = { "Золото", "Свинец", "Серебро", "Фарфор", "Лёд", "Кирпич", "Платина" };
             cbItems.Items.AddRange(Items);
-            string[] Planets = { "Земля", "Луна", "Венера", "Юпитер", "Уран", "Эрида", "Солнце", "Меркурий", "Марс", "Сатурн", "Нептун", "Плутон", "Фобос", "Ио", "Европа", "Каллисто", "Титан", "Ганнимед", "Тритон" };
+            string[] Planets = new string[PlanetG.Count];
+            int i = 0;
+            foreach (var keyval in PlanetG)
+            {
+                Planets[i] = keyval.Key;
+                i++;
+            }
             cbPlanets.Items.AddRange(Planets);
         }
 
