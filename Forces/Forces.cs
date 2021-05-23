@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Forces
 {
@@ -10,6 +11,10 @@ namespace Forces
         public Vector Gravity = new Vector(), Buyoancy = new Vector(), R, V, G = new Vector(0, 981);
         public double areaDensity = 1, itemDensity = 1;
         Item item;
+        double addedVolume = 0;
+        double addedMass = 0;
+        Vector AddedBuyoancy = new Vector();
+        Vector AddedGravity = new Vector();
         private Dictionary<string, int> PlanetG = new Dictionary<string, int>
         {
             ["Земля"] = 981,
@@ -30,107 +35,64 @@ namespace Forces
             ["Тритон"] = 77
         };
 
-       // private PhysItem[] items; //={...}
-       // private PhysArea[] areas; //={...}
+        private Entity[] entities =
+         {
+                new Entity( "Золото",
+                     1930,@"Images\Gold.png"),
+                new Entity( "Свинец",
+                     1130,@"Images\Lead.png"),
+                new Entity( "Серебро",
+                     1050,@"Images\Silver.png")
+                //    break;
+                //new Entity( "Фарфор",
+                //     2300;
+                //    pbItem.Image = Image.FromFile(@"Images\Porcelain.png");
+                //    break;
+                //new Entity( "Лёд",
+                //     9000;
+                //    pbItem.Image = Image.FromFile(@"Images\Ice.png");
+                //    break;
+                //new Entity( "Кирпич",
+                //     1800;
+                //    pbItem.Image = Image.FromFile(@"Images\Brick.png");
+                //    break;
+                //new Entity( "Платина",
+                //     23500;
+                //    pbItem.Image = Image.FromFile(@"Images\Platinum.png");
+                //    break;
+        };
+
+        private Area[] areas = { };
+        //
 
         private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e) => G = new Vector(0, PlanetG[(string)cbPlanets.SelectedItem]);
 
 
         private void cbAreas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cbAreas.SelectedItem)
-            {
-                case "Молоко":
-                    areaDensity = 1040;
-                    pnlField.BackColor = Color.White;
-                    break;
-                case "Ртуть":
-                    areaDensity = 1360;
-                    pnlField.BackColor = Color.Gray;
-                    break;
-                case "Вода":
-                    areaDensity = 1000;
-                    pnlField.BackColor = Color.Aqua;
-                    break;
-                case "Керосин":
-                    areaDensity = 8200;
-                    pnlField.BackColor = Color.GreenYellow;
-                    break;
-                case "Бензин":
-                    areaDensity = 7100;
-                    pnlField.BackColor = Color.Purple;
-                    break;
-                case "Нефть":
-                    areaDensity = 8000;
-                    pnlField.BackColor = Color.Black;
-                    break;
-                case "Ацетон":
-                    areaDensity = 7920;
-                    pnlField.BackColor = Color.Brown;
-                    break;
-                case "Мёд":
-                    areaDensity = 1350;
-                    pnlField.BackColor = Color.Orange;
-                    break;
-                case "Воздух":
-                    areaDensity = 1290;
-                    pnlField.BackColor = Color.Gray;
-                    break;
-                case "Кислород":
-                    areaDensity = 1430;
-                    pnlField.BackColor = Color.LightGray;
-                    break;
-            }
+            Area area = areas.FirstOrDefault(a => a.Name == cbAreas.SelectedItem.ToString());
+            itemDensity = area.Density;
+            pnlField.BackColor = area.Color;
+        }
+
+        private void trAddedVolume_Scroll(object sender, EventArgs e)
+        {
+            addedVolume = trAddedVolume.Value;
+            pbBalloon.Size = new Size((int)addedVolume, (int)addedVolume);
         }
 
         private void cbItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cbItems.SelectedItem)
-            {
-                case "Золото":
-                    itemDensity = 1930;
-                    pbItem.Image = Image.FromFile(@"Images\Gold.png");
-                    break;
-                case "Свинец":
-                    itemDensity = 1130;
-                    pbItem.Image = Image.FromFile(@"Images\Lead.png");
-                    break;
-                case "Серебро":
-                    itemDensity = 1050;
-                    pbItem.Image = Image.FromFile(@"Images\Silver.png");
-                    break;
-                case "Фарфор":
-                    itemDensity = 2300;
-                    pbItem.Image = Image.FromFile(@"Images\Porcelain.png");
-                    break;
-                case "Лёд":
-                    itemDensity = 9000;
-                    pbItem.Image = Image.FromFile(@"Images\Ice.png");
-                    break;
-                case "Кирпич":
-                    itemDensity = 1800;
-                    pbItem.Image = Image.FromFile(@"Images\Brick.png");
-                    break;
-                case "Платина":
-                    itemDensity = 23500;
-                    pbItem.Image = Image.FromFile(@"Images\Platinum.png");
-                    break;
-            }
+            //Area area = areas.FirstOrDefault(a => a.Name == cbAreas.SelectedItem.ToString());
+            //itemDensity = area.Density;
+            //pnlField.BackColor = area.Color;
         }
 
         public Forces()
         {
             InitializeComponent();
             item = new Item(R = new Vector(0, 0), V = new Vector(0, 10), 1, 1);
-            Materia[] materias
-            {
-                new Materia("Золото", 1930),
-                new Materia("Свинец", 1130),
-                new Materia("Серебро", 1930),
-                new Materia("Фарфор", 2300),
-                new Materia("Лёд", 9000)
-            };
-            string[] Areas = { "Молоко", "Ртуть", "Вода", "Керосин", "Бензин", "Нефть", "Ацетон", "Мёд", "Воздух", "Кислород" };
+            string[] Areas = areas.Select(x => x.Name).ToArray();
             cbAreas.Items.AddRange(Areas);
             string[] Items = { "Золото", "Свинец", "Серебро", "Фарфор", "Лёд", "Кирпич", "Платина" };
             cbItems.Items.AddRange(Items);
@@ -147,8 +109,10 @@ namespace Forces
         private void timer_Tick(object sender, EventArgs e)
         {
             double dt = timer.Interval / 1000.0;
-            item.Move(dt, Gravity + Buyoancy);
+            item.Move(dt, Gravity + Buyoancy + AddedBuyoancy + AddedGravity);
             pbItem.Location = new Point(Convert.ToInt32(item.R.X), Convert.ToInt32(item.R.Y));
+            pbBalloon.Top = pbItem.Top - pbBalloon.Height;
+            pbWeight.Top = pbItem.Top + pbItem.Height;
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -156,6 +120,8 @@ namespace Forces
             item.Mass = item.Volume * itemDensity;
             Gravity = item.Mass * G;
             Buyoancy = -(areaDensity * G) * item.Volume;
+            AddedBuyoancy = -(areaDensity * G) * addedVolume;
+            AddedGravity = addedMass * G;
             timer.Start();
             lblVolume.Text = "Объем тела: " + item.Volume;
             lblItemDensity.Text = "Плотность тела: " + itemDensity;
