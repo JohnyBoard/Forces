@@ -7,67 +7,32 @@ namespace Forces
     public partial class Forces : Form
     {
         public Vector Gravity = new Vector(), Buyoancy = new Vector(), R, V, G = new Vector(0, 981);
-        public double areaDensity = 1, objectDensity = 1, mass = 1, volume = 1;        
+        public double areaDensity = 1, itemDensity = 1;  
         Item item;
 
-        private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e) => G = new Vector(0, Falling((string)cbPlanets.SelectedItem));
+
+        public int Falling(string s)
         {
-            switch (cbPlanets.SelectedItem)
+            switch(s)
             {
-                case "Земля":
-                    G = new Vector(0, 981);
-                    break;
-                case "Луна":
-                    G = new Vector(0, 162);
-                    break;
-                case "Венера":
-                    G = new Vector(0, 888);
-                    break;
-                case "Юпитер":
-                    G = new Vector(0, 2480);
-                    break;
-                case "Уран":
-                    G = new Vector(0, 886);
-                    break;
-                case "Эрида":
-                    G = new Vector(0, 84);
-                    break;
-                case "Солнце":
-                    G = new Vector(0, 27310);
-                    break;
-                case "Меркурий":
-                    G = new Vector(0, 370);
-                    break;
-                case "Марс":
-                    G = new Vector(0, 386);
-                    break;
-                case "Сатурн":
-                    G = new Vector(0, 1044);
-                    break;
-                case "Нептун":
-                    G = new Vector(0, 1109);
-                    break;
-                case "Плутон":
-                    G = new Vector(0, 61);
-                    break;
-                case "Европа":
-                    G = new Vector(0, 131);
-                    break;
-                case "Ганимед":
-                    G = new Vector(0, 142);
-                    break;
-                case "Титан":
-                    G = new Vector(0, 135);
-                    break;
-                case "Тритон":
-                    G = new Vector(0, 77);
-                    break;
-                case "Ио":
-                    G = new Vector(0, 180);
-                    break;
-                case "Каллисто":
-                    G = new Vector(0, 179);
-                    break;
+                case "Земля": return 981;
+                case "Луна": return 162;
+                case "Венера": return 88;
+                case "Юпитер": return 2480;
+                case "Уран": return 886;
+                case "Эрида": return 84;
+                case "Солнце": return 27310;
+                case "Меркурий": return 370;
+                case "Марс": return 386;
+                case "Сатурн": return 1044;
+                case "Нептун": return 1109;
+                case "Плутон": return 61;
+                case "Европа": return 131;
+                case "Ганимед": return 142;
+                case "Титан": return 135;
+                case "Тритон": return 77;
+                default: return 180;
             }
         }
 
@@ -123,32 +88,32 @@ namespace Forces
             switch (cbItems.SelectedItem)
             {
                 case "Золото":
-                    objectDensity = 1930;
+                    itemDensity = 1930;
                     pbItem.Image = Image.FromFile(@"Images\Gold.png");
                     break;
                 case "Свинец":
-                    objectDensity = 1130;
+                    itemDensity = 1130;
                     pbItem.Image = Image.FromFile(@"Images\Lead.png");
                     break;
                 case "Серебро":
-                    objectDensity = 1050;
+                    itemDensity = 1050;
                     pbItem.Image = Image.FromFile(@"Images\Silver.png");
                     break;
                 case "Фарфор":
-                    objectDensity = 2300;
-                    pbItem.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Porcelain.png");
+                    itemDensity = 2300;
+                    pbItem.Image = Image.FromFile(@"Images\Porcelain.png");
                     break;
                 case "Лёд":
-                    objectDensity = 9000;
-                    pbItem.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Ice.png");
+                    itemDensity = 9000;
+                    pbItem.Image = Image.FromFile(@"Images\Ice.png");
                     break;
                 case "Кирпич":
-                    objectDensity = 1800;
-                    pbItem.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Brick.png");
+                    itemDensity = 1800;
+                    pbItem.Image = Image.FromFile(@"Images\Brick.png");
                     break;
                 case "Платина":
-                    objectDensity = 23500;
-                    pbItem.Image = Image.FromFile("E:\\D\\ВАНЯ ЕГО Док\\Программирование\\C# Advanced\\Forms\\Forces\\Forces\\bin\\Debug\\Images\\Platinum.png");
+                    itemDensity = 23500;
+                    pbItem.Image = Image.FromFile(@"Images\Platinum.png");
                     break;               
             }
         }
@@ -156,10 +121,10 @@ namespace Forces
         public Forces()
         {
             InitializeComponent();
-            item = new Item (R = new Vector(0, 0), V = new Vector(0, 10), mass, volume);
+            item = new Item (R = new Vector(0, 0), V = new Vector(0, 10), 1, 1);
             string[] Areas = { "Молоко", "Ртуть", "Вода", "Керосин", "Бензин", "Нефть", "Ацетон", "Мёд", "Воздух", "Кислород" };
             cbAreas.Items.AddRange(Areas);
-            string[] Items = { "Золото", "Свинец", "Серебро", "Фарфор", "Лёд", "Кирпич", "Платина", "Малыш Йода" };
+            string[] Items = { "Золото", "Свинец", "Серебро", "Фарфор", "Лёд", "Кирпич", "Платина" };
             cbItems.Items.AddRange(Items);
             string[] Planets = { "Земля", "Луна", "Венера", "Юпитер", "Уран", "Эрида", "Солнце", "Меркурий", "Марс", "Сатурн", "Нептун", "Плутон", "Фобос", "Ио", "Европа", "Каллисто", "Титан", "Ганнимед", "Тритон" };
             cbPlanets.Items.AddRange(Planets);
@@ -174,16 +139,22 @@ namespace Forces
 
         private void button_Click(object sender, EventArgs e)
         {
-            item.Mass = item.Volume * objectDensity;
+            item.Mass = item.Volume * itemDensity;
             Gravity = item.Mass * G;
             Buyoancy = -(areaDensity * G) * item.Volume;
             timer.Start();
+            lblVolume.Text = "Объем тела: " + item.Volume;
+            lblItemDensity.Text = "Плотность тела: " + itemDensity;
+            lblAreaDensity.Text = "Плотность среды: " + areaDensity;
+            lblItemMass.Text = "Масса тела: " + item.Mass;
+            lblArchimed.Text = "Сила тяжести: " + Gravity;
+            lblArchimed.Text = "Сила Архимеда: " + Buyoancy;
         }
 
         private void tbVolume_Scroll(object sender, EventArgs e)
         {
-            //изменение размера
-            item.Volume = tbVolume.Value;
+            item.Volume = tbVolume.Value == 0 ? 1 : tbVolume.Value;
+            pbItem.Size = new Size((int)item.Volume, (int)item.Volume);
         }
     }
 }
