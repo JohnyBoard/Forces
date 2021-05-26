@@ -10,28 +10,8 @@ namespace Forces
         public Vector Gravity = new Vector(), Buyoancy = new Vector(), R, V, G = new Vector(0, 981);
         public double areaDensity = 1, itemDensity = 1;
         Item item;
-        private Dictionary<string, int> PlanetG = new Dictionary<string, int>
-        {
-            ["Земля"] = 981,
-            ["Луна"] = 162,
-            ["Венера"] = 88,
-            ["Юпитер"] = 2480,
-            ["Уран"] = 886,
-            ["Эрида"] = 84,
-            ["Солнце"] = 27310,
-            ["Меркурий"] = 370,
-            ["Марс"] = 386,
-            ["Сатурн"] = 1044,
-            ["Нептун"] = 1109,
-            ["Плутон"] = 61,
-            ["Европа"] = 131,
-            ["Ганимед"] = 142,
-            ["Титан"] = 135,
-            ["Тритон"] = 77
-        };
 
-       // private PhysItem[] items; //={...}
-       // private PhysArea[] areas; //={...}
+        private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e) => G = new Vector(0, Falling((string)cbPlanets.SelectedItem));
 
         private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e) => G = new Vector(0, PlanetG[(string)cbPlanets.SelectedItem]);
 
