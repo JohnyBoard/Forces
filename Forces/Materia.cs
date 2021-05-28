@@ -1,6 +1,6 @@
 ﻿namespace Forces
 {
-    public class Materia : Entity
+    public abstract class Materia
     {
         protected Materia(string name, int density)
         {

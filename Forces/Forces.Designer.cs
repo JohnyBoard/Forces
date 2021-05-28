@@ -30,34 +30,34 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.tlp = new System.Windows.Forms.TableLayoutPanel();
             this.pnlOptions = new System.Windows.Forms.Panel();
+            this.lblArchimed = new System.Windows.Forms.Label();
+            this.lblGravity = new System.Windows.Forms.Label();
+            this.lblItemMass = new System.Windows.Forms.Label();
             this.lblVolume = new System.Windows.Forms.Label();
             this.lblItemDensity = new System.Windows.Forms.Label();
             this.lblAreaDensity = new System.Windows.Forms.Label();
             this.cbPlanets = new System.Windows.Forms.ComboBox();
-            this.cbItems = new System.Windows.Forms.ComboBox();
+            this.cbEntities = new System.Windows.Forms.ComboBox();
             this.cbAreas = new System.Windows.Forms.ComboBox();
             this.button = new System.Windows.Forms.Button();
             this.tbVolume = new System.Windows.Forms.TrackBar();
             this.pnlField = new System.Windows.Forms.Panel();
+            this.pbBalloon = new System.Windows.Forms.PictureBox();
             this.pbWeight = new System.Windows.Forms.PictureBox();
             this.pbItem = new System.Windows.Forms.PictureBox();
-            this.lblItemMass = new System.Windows.Forms.Label();
-            this.lblGravity = new System.Windows.Forms.Label();
-            this.lblArchimed = new System.Windows.Forms.Label();
-            this.pbBalloon = new System.Windows.Forms.PictureBox();
             this.tlp.SuspendLayout();
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbVolume)).BeginInit();
             this.pnlField.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBalloon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBalloon)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
             // 
             this.timer.Interval = 33;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.timer.Tick += new System.EventHandler(this.timer_Tick_1);
             // 
             // tlp
             // 
@@ -85,7 +85,7 @@
             this.pnlOptions.Controls.Add(this.lblItemDensity);
             this.pnlOptions.Controls.Add(this.lblAreaDensity);
             this.pnlOptions.Controls.Add(this.cbPlanets);
-            this.pnlOptions.Controls.Add(this.cbItems);
+            this.pnlOptions.Controls.Add(this.cbEntities);
             this.pnlOptions.Controls.Add(this.cbAreas);
             this.pnlOptions.Controls.Add(this.button);
             this.pnlOptions.Controls.Add(this.tbVolume);
@@ -94,6 +94,36 @@
             this.pnlOptions.Name = "pnlOptions";
             this.pnlOptions.Size = new System.Drawing.Size(154, 444);
             this.pnlOptions.TabIndex = 1;
+            // 
+            // lblArchimed
+            // 
+            this.lblArchimed.AutoSize = true;
+            this.lblArchimed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblArchimed.Location = new System.Drawing.Point(9, 221);
+            this.lblArchimed.Name = "lblArchimed";
+            this.lblArchimed.Size = new System.Drawing.Size(118, 19);
+            this.lblArchimed.TabIndex = 13;
+            this.lblArchimed.Text = "Сила Архимеда:";
+            // 
+            // lblGravity
+            // 
+            this.lblGravity.AutoSize = true;
+            this.lblGravity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblGravity.Location = new System.Drawing.Point(9, 202);
+            this.lblGravity.Name = "lblGravity";
+            this.lblGravity.Size = new System.Drawing.Size(106, 19);
+            this.lblGravity.TabIndex = 12;
+            this.lblGravity.Text = "Сила тяжести:";
+            // 
+            // lblItemMass
+            // 
+            this.lblItemMass.AutoSize = true;
+            this.lblItemMass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblItemMass.Location = new System.Drawing.Point(9, 183);
+            this.lblItemMass.Name = "lblItemMass";
+            this.lblItemMass.Size = new System.Drawing.Size(87, 19);
+            this.lblItemMass.TabIndex = 11;
+            this.lblItemMass.Text = "Масса тела:";
             // 
             // lblVolume
             // 
@@ -134,14 +164,14 @@
             this.cbPlanets.TabIndex = 7;
             this.cbPlanets.SelectedIndexChanged += new System.EventHandler(this.cbPlanets_SelectedIndexChanged);
             // 
-            // cbItems
+            // cbEntities
             // 
-            this.cbItems.FormattingEnabled = true;
-            this.cbItems.Location = new System.Drawing.Point(10, 69);
-            this.cbItems.Name = "cbItems";
-            this.cbItems.Size = new System.Drawing.Size(133, 21);
-            this.cbItems.TabIndex = 6;
-            this.cbItems.SelectedIndexChanged += new System.EventHandler(this.cbItems_SelectedIndexChanged);
+            this.cbEntities.FormattingEnabled = true;
+            this.cbEntities.Location = new System.Drawing.Point(10, 69);
+            this.cbEntities.Name = "cbEntities";
+            this.cbEntities.Size = new System.Drawing.Size(133, 21);
+            this.cbEntities.TabIndex = 6;
+            this.cbEntities.SelectedIndexChanged += new System.EventHandler(this.cbEntities_SelectedIndexChanged);
             // 
             // cbAreas
             // 
@@ -187,6 +217,16 @@
             this.pnlField.Size = new System.Drawing.Size(634, 444);
             this.pnlField.TabIndex = 0;
             // 
+            // pbBalloon
+            // 
+            this.pbBalloon.Image = ((System.Drawing.Image)(resources.GetObject("pbBalloon.Image")));
+            this.pbBalloon.Location = new System.Drawing.Point(268, 110);
+            this.pbBalloon.Name = "pbBalloon";
+            this.pbBalloon.Size = new System.Drawing.Size(77, 73);
+            this.pbBalloon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBalloon.TabIndex = 2;
+            this.pbBalloon.TabStop = false;
+            // 
             // pbWeight
             // 
             this.pbWeight.Image = ((System.Drawing.Image)(resources.GetObject("pbWeight.Image")));
@@ -207,46 +247,6 @@
             this.pbItem.TabIndex = 0;
             this.pbItem.TabStop = false;
             // 
-            // lblItemMass
-            // 
-            this.lblItemMass.AutoSize = true;
-            this.lblItemMass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblItemMass.Location = new System.Drawing.Point(9, 183);
-            this.lblItemMass.Name = "lblItemMass";
-            this.lblItemMass.Size = new System.Drawing.Size(87, 19);
-            this.lblItemMass.TabIndex = 11;
-            this.lblItemMass.Text = "Масса тела:";
-            // 
-            // lblGravity
-            // 
-            this.lblGravity.AutoSize = true;
-            this.lblGravity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblGravity.Location = new System.Drawing.Point(9, 202);
-            this.lblGravity.Name = "lblGravity";
-            this.lblGravity.Size = new System.Drawing.Size(106, 19);
-            this.lblGravity.TabIndex = 12;
-            this.lblGravity.Text = "Сила тяжести:";
-            // 
-            // lblArchimed
-            // 
-            this.lblArchimed.AutoSize = true;
-            this.lblArchimed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblArchimed.Location = new System.Drawing.Point(9, 221);
-            this.lblArchimed.Name = "lblArchimed";
-            this.lblArchimed.Size = new System.Drawing.Size(118, 19);
-            this.lblArchimed.TabIndex = 13;
-            this.lblArchimed.Text = "Сила Архимеда:";
-            // 
-            // pbBalloon
-            // 
-            this.pbBalloon.Image = ((System.Drawing.Image)(resources.GetObject("pbBalloon.Image")));
-            this.pbBalloon.Location = new System.Drawing.Point(268, 110);
-            this.pbBalloon.Name = "pbBalloon";
-            this.pbBalloon.Size = new System.Drawing.Size(77, 73);
-            this.pbBalloon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBalloon.TabIndex = 2;
-            this.pbBalloon.TabStop = false;
-            // 
             // Forces
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,9 +260,9 @@
             this.pnlOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbVolume)).EndInit();
             this.pnlField.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbBalloon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBalloon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -274,7 +274,7 @@
         private System.Windows.Forms.Panel pnlField;
         private System.Windows.Forms.PictureBox pbItem;
         private System.Windows.Forms.Button button;
-        private System.Windows.Forms.ComboBox cbItems;
+        private System.Windows.Forms.ComboBox cbEntities;
         private System.Windows.Forms.ComboBox cbAreas;
         private System.Windows.Forms.ComboBox cbPlanets;
         private System.Windows.Forms.Label lblVolume;
