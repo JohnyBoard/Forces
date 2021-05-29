@@ -2,7 +2,7 @@
 {
     public abstract class Materia
     {
-        protected Materia(string name, int density)
+        protected Materia(string name, double density)
         {
             Name = name;
             Density = density;
@@ -10,6 +10,6 @@
 
         public string Name { get; set; }
 
-        public int Density { get; set; }
+        public double Density { get; set; }
     }
 }

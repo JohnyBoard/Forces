@@ -30,12 +30,8 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.tlp = new System.Windows.Forms.TableLayoutPanel();
             this.pnlOptions = new System.Windows.Forms.Panel();
-            this.lblArchimed = new System.Windows.Forms.Label();
-            this.lblGravity = new System.Windows.Forms.Label();
-            this.lblItemMass = new System.Windows.Forms.Label();
-            this.lblVolume = new System.Windows.Forms.Label();
-            this.lblItemDensity = new System.Windows.Forms.Label();
-            this.lblAreaDensity = new System.Windows.Forms.Label();
+            this.tbAddedMass = new System.Windows.Forms.TrackBar();
+            this.tbAddedVolume = new System.Windows.Forms.TrackBar();
             this.cbPlanets = new System.Windows.Forms.ComboBox();
             this.cbEntities = new System.Windows.Forms.ComboBox();
             this.cbAreas = new System.Windows.Forms.ComboBox();
@@ -45,17 +41,15 @@
             this.pbBalloon = new System.Windows.Forms.PictureBox();
             this.pbWeight = new System.Windows.Forms.PictureBox();
             this.pbItem = new System.Windows.Forms.PictureBox();
-            this.tbAddedVolume = new System.Windows.Forms.TrackBar();
-            this.tbAddedMass = new System.Windows.Forms.TrackBar();
             this.tlp.SuspendLayout();
             this.pnlOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAddedMass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAddedVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbVolume)).BeginInit();
             this.pnlField.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBalloon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbAddedVolume)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbAddedMass)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
@@ -73,11 +67,10 @@
             this.tlp.Controls.Add(this.pnlField, 1, 0);
             this.tlp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlp.Location = new System.Drawing.Point(0, 0);
-            this.tlp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlp.Name = "tlp";
             this.tlp.RowCount = 1;
             this.tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp.Size = new System.Drawing.Size(1067, 554);
+            this.tlp.Size = new System.Drawing.Size(800, 450);
             this.tlp.TabIndex = 0;
             // 
             // pnlOptions
@@ -85,117 +78,63 @@
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.pnlOptions.Controls.Add(this.tbAddedMass);
             this.pnlOptions.Controls.Add(this.tbAddedVolume);
-            this.pnlOptions.Controls.Add(this.lblArchimed);
-            this.pnlOptions.Controls.Add(this.lblGravity);
-            this.pnlOptions.Controls.Add(this.lblItemMass);
-            this.pnlOptions.Controls.Add(this.lblVolume);
-            this.pnlOptions.Controls.Add(this.lblItemDensity);
-            this.pnlOptions.Controls.Add(this.lblAreaDensity);
             this.pnlOptions.Controls.Add(this.cbPlanets);
             this.pnlOptions.Controls.Add(this.cbEntities);
             this.pnlOptions.Controls.Add(this.cbAreas);
             this.pnlOptions.Controls.Add(this.button);
             this.pnlOptions.Controls.Add(this.tbVolume);
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlOptions.Location = new System.Drawing.Point(4, 4);
-            this.pnlOptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlOptions.Location = new System.Drawing.Point(3, 3);
             this.pnlOptions.Name = "pnlOptions";
-            this.pnlOptions.Size = new System.Drawing.Size(205, 546);
+            this.pnlOptions.Size = new System.Drawing.Size(154, 444);
             this.pnlOptions.TabIndex = 1;
             // 
-            // lblArchimed
+            // tbAddedMass
             // 
-            this.lblArchimed.AutoSize = true;
-            this.lblArchimed.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblArchimed.Location = new System.Drawing.Point(12, 272);
-            this.lblArchimed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblArchimed.Name = "lblArchimed";
-            this.lblArchimed.Size = new System.Drawing.Size(149, 22);
-            this.lblArchimed.TabIndex = 13;
-            this.lblArchimed.Text = "Сила Архимеда:";
+            this.tbAddedMass.Location = new System.Drawing.Point(12, 192);
+            this.tbAddedMass.Maximum = 300;
+            this.tbAddedMass.Minimum = 30;
+            this.tbAddedMass.Name = "tbAddedMass";
+            this.tbAddedMass.Size = new System.Drawing.Size(130, 45);
+            this.tbAddedMass.TabIndex = 15;
+            this.tbAddedMass.Value = 30;
+            this.tbAddedMass.Scroll += new System.EventHandler(this.tbAddedMass_Scroll);
             // 
-            // lblGravity
+            // tbAddedVolume
             // 
-            this.lblGravity.AutoSize = true;
-            this.lblGravity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblGravity.Location = new System.Drawing.Point(12, 249);
-            this.lblGravity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblGravity.Name = "lblGravity";
-            this.lblGravity.Size = new System.Drawing.Size(134, 22);
-            this.lblGravity.TabIndex = 12;
-            this.lblGravity.Text = "Сила тяжести:";
-            // 
-            // lblItemMass
-            // 
-            this.lblItemMass.AutoSize = true;
-            this.lblItemMass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblItemMass.Location = new System.Drawing.Point(12, 225);
-            this.lblItemMass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblItemMass.Name = "lblItemMass";
-            this.lblItemMass.Size = new System.Drawing.Size(111, 22);
-            this.lblItemMass.TabIndex = 11;
-            this.lblItemMass.Text = "Масса тела:";
-            // 
-            // lblVolume
-            // 
-            this.lblVolume.AutoSize = true;
-            this.lblVolume.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblVolume.Location = new System.Drawing.Point(12, 202);
-            this.lblVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVolume.Name = "lblVolume";
-            this.lblVolume.Size = new System.Drawing.Size(114, 22);
-            this.lblVolume.TabIndex = 10;
-            this.lblVolume.Text = "Объем тела:";
-            // 
-            // lblItemDensity
-            // 
-            this.lblItemDensity.AutoSize = true;
-            this.lblItemDensity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblItemDensity.Location = new System.Drawing.Point(12, 178);
-            this.lblItemDensity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblItemDensity.Name = "lblItemDensity";
-            this.lblItemDensity.Size = new System.Drawing.Size(149, 22);
-            this.lblItemDensity.TabIndex = 9;
-            this.lblItemDensity.Text = "Плотность тела:";
-            // 
-            // lblAreaDensity
-            // 
-            this.lblAreaDensity.AutoSize = true;
-            this.lblAreaDensity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblAreaDensity.Location = new System.Drawing.Point(12, 155);
-            this.lblAreaDensity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAreaDensity.Name = "lblAreaDensity";
-            this.lblAreaDensity.Size = new System.Drawing.Size(163, 22);
-            this.lblAreaDensity.TabIndex = 8;
-            this.lblAreaDensity.Text = "Плотность среды:";
+            this.tbAddedVolume.Location = new System.Drawing.Point(12, 90);
+            this.tbAddedVolume.Maximum = 300;
+            this.tbAddedVolume.Minimum = 30;
+            this.tbAddedVolume.Name = "tbAddedVolume";
+            this.tbAddedVolume.Size = new System.Drawing.Size(130, 45);
+            this.tbAddedVolume.TabIndex = 14;
+            this.tbAddedVolume.Value = 30;
+            this.tbAddedVolume.Scroll += new System.EventHandler(this.tbAddedVolume_Scroll);
             // 
             // cbPlanets
             // 
             this.cbPlanets.FormattingEnabled = true;
-            this.cbPlanets.Location = new System.Drawing.Point(13, 118);
-            this.cbPlanets.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPlanets.Location = new System.Drawing.Point(10, 63);
             this.cbPlanets.Name = "cbPlanets";
-            this.cbPlanets.Size = new System.Drawing.Size(176, 24);
+            this.cbPlanets.Size = new System.Drawing.Size(133, 21);
             this.cbPlanets.TabIndex = 7;
             this.cbPlanets.SelectedIndexChanged += new System.EventHandler(this.cbPlanets_SelectedIndexChanged);
             // 
             // cbEntities
             // 
             this.cbEntities.FormattingEnabled = true;
-            this.cbEntities.Location = new System.Drawing.Point(13, 85);
-            this.cbEntities.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbEntities.Location = new System.Drawing.Point(10, 36);
             this.cbEntities.Name = "cbEntities";
-            this.cbEntities.Size = new System.Drawing.Size(176, 24);
+            this.cbEntities.Size = new System.Drawing.Size(133, 21);
             this.cbEntities.TabIndex = 6;
             this.cbEntities.SelectedIndexChanged += new System.EventHandler(this.cbEntities_SelectedIndexChanged);
             // 
             // cbAreas
             // 
             this.cbAreas.FormattingEnabled = true;
-            this.cbAreas.Location = new System.Drawing.Point(13, 52);
-            this.cbAreas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbAreas.Location = new System.Drawing.Point(10, 9);
             this.cbAreas.Name = "cbAreas";
-            this.cbAreas.Size = new System.Drawing.Size(176, 24);
+            this.cbAreas.Size = new System.Drawing.Size(133, 21);
             this.cbAreas.TabIndex = 5;
             this.cbAreas.SelectedIndexChanged += new System.EventHandler(this.cbAreas_SelectedIndexChanged);
             // 
@@ -204,10 +143,9 @@
             this.button.BackColor = System.Drawing.Color.White;
             this.button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button.Location = new System.Drawing.Point(8, 492);
-            this.button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button.Location = new System.Drawing.Point(6, 400);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(181, 43);
+            this.button.Size = new System.Drawing.Size(136, 35);
             this.button.TabIndex = 2;
             this.button.Text = "Start";
             this.button.UseVisualStyleBackColor = false;
@@ -215,14 +153,13 @@
             // 
             // tbVolume
             // 
-            this.tbVolume.Location = new System.Drawing.Point(12, 4);
-            this.tbVolume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbVolume.Maximum = 1000;
-            this.tbVolume.Minimum = 1;
+            this.tbVolume.Location = new System.Drawing.Point(13, 138);
+            this.tbVolume.Maximum = 300;
+            this.tbVolume.Minimum = 30;
             this.tbVolume.Name = "tbVolume";
-            this.tbVolume.Size = new System.Drawing.Size(173, 56);
+            this.tbVolume.Size = new System.Drawing.Size(130, 45);
             this.tbVolume.TabIndex = 1;
-            this.tbVolume.Value = 1;
+            this.tbVolume.Value = 30;
             this.tbVolume.Scroll += new System.EventHandler(this.tbVolume_Scroll);
             // 
             // pnlField
@@ -231,19 +168,17 @@
             this.pnlField.Controls.Add(this.pbWeight);
             this.pnlField.Controls.Add(this.pbItem);
             this.pnlField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlField.Location = new System.Drawing.Point(217, 4);
-            this.pnlField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlField.Location = new System.Drawing.Point(163, 3);
             this.pnlField.Name = "pnlField";
-            this.pnlField.Size = new System.Drawing.Size(846, 546);
+            this.pnlField.Size = new System.Drawing.Size(634, 444);
             this.pnlField.TabIndex = 0;
             // 
             // pbBalloon
             // 
             this.pbBalloon.Image = ((System.Drawing.Image)(resources.GetObject("pbBalloon.Image")));
-            this.pbBalloon.Location = new System.Drawing.Point(357, 135);
-            this.pbBalloon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbBalloon.Location = new System.Drawing.Point(268, 110);
             this.pbBalloon.Name = "pbBalloon";
-            this.pbBalloon.Size = new System.Drawing.Size(103, 90);
+            this.pbBalloon.Size = new System.Drawing.Size(77, 73);
             this.pbBalloon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbBalloon.TabIndex = 2;
             this.pbBalloon.TabStop = false;
@@ -251,10 +186,9 @@
             // pbWeight
             // 
             this.pbWeight.Image = ((System.Drawing.Image)(resources.GetObject("pbWeight.Image")));
-            this.pbWeight.Location = new System.Drawing.Point(357, 331);
-            this.pbWeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbWeight.Location = new System.Drawing.Point(268, 269);
             this.pbWeight.Name = "pbWeight";
-            this.pbWeight.Size = new System.Drawing.Size(103, 90);
+            this.pbWeight.Size = new System.Drawing.Size(77, 73);
             this.pbWeight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbWeight.TabIndex = 1;
             this.pbWeight.TabStop = false;
@@ -262,80 +196,48 @@
             // pbItem
             // 
             this.pbItem.Image = ((System.Drawing.Image)(resources.GetObject("pbItem.Image")));
-            this.pbItem.Location = new System.Drawing.Point(357, 234);
-            this.pbItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbItem.Location = new System.Drawing.Point(268, 190);
             this.pbItem.Name = "pbItem";
-            this.pbItem.Size = new System.Drawing.Size(103, 90);
+            this.pbItem.Size = new System.Drawing.Size(77, 73);
             this.pbItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbItem.TabIndex = 0;
             this.pbItem.TabStop = false;
             // 
-            // tbAddedVolume
-            // 
-            this.tbAddedVolume.Location = new System.Drawing.Point(13, 307);
-            this.tbAddedVolume.Margin = new System.Windows.Forms.Padding(4);
-            this.tbAddedVolume.Maximum = 10000;
-            this.tbAddedVolume.Minimum = 1;
-            this.tbAddedVolume.Name = "tbAddedVolume";
-            this.tbAddedVolume.Size = new System.Drawing.Size(173, 56);
-            this.tbAddedVolume.TabIndex = 14;
-            this.tbAddedVolume.Value = 1;
-            this.tbAddedVolume.Scroll += new System.EventHandler(this.tbAddedVolume_Scroll);
-            // 
-            // tbAddedMass
-            // 
-            this.tbAddedMass.Location = new System.Drawing.Point(8, 365);
-            this.tbAddedMass.Margin = new System.Windows.Forms.Padding(4);
-            this.tbAddedMass.Maximum = 1000;
-            this.tbAddedMass.Minimum = 1;
-            this.tbAddedMass.Name = "tbAddedMass";
-            this.tbAddedMass.Size = new System.Drawing.Size(173, 56);
-            this.tbAddedMass.TabIndex = 15;
-            this.tbAddedMass.Value = 1;
-            this.tbAddedMass.Scroll += new System.EventHandler(this.tbAddedMass_Scroll);
-            // 
             // Forces
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tlp);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Forces";
             this.Text = "Forces";
             this.tlp.ResumeLayout(false);
             this.pnlOptions.ResumeLayout(false);
             this.pnlOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAddedMass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAddedVolume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbVolume)).EndInit();
             this.pnlField.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbBalloon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbAddedVolume)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbAddedMass)).EndInit();
             this.ResumeLayout(false);
 
         }
         #endregion
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.TableLayoutPanel tlp;
-        private System.Windows.Forms.Panel pnlOptions;
-        private System.Windows.Forms.TrackBar tbVolume;
         private System.Windows.Forms.Panel pnlField;
         private System.Windows.Forms.PictureBox pbItem;
-        private System.Windows.Forms.Button button;
-        private System.Windows.Forms.ComboBox cbEntities;
-        private System.Windows.Forms.ComboBox cbAreas;
-        private System.Windows.Forms.ComboBox cbPlanets;
-        private System.Windows.Forms.Label lblVolume;
-        private System.Windows.Forms.Label lblItemDensity;
-        private System.Windows.Forms.Label lblAreaDensity;
         private System.Windows.Forms.PictureBox pbWeight;
-        private System.Windows.Forms.Label lblItemMass;
-        private System.Windows.Forms.Label lblArchimed;
-        private System.Windows.Forms.Label lblGravity;
         private System.Windows.Forms.PictureBox pbBalloon;
+        private System.Windows.Forms.Panel pnlOptions;
         private System.Windows.Forms.TrackBar tbAddedMass;
         private System.Windows.Forms.TrackBar tbAddedVolume;
+        private System.Windows.Forms.ComboBox cbPlanets;
+        private System.Windows.Forms.ComboBox cbEntities;
+        private System.Windows.Forms.ComboBox cbAreas;
+        private System.Windows.Forms.Button button;
+        private System.Windows.Forms.TrackBar tbVolume;
     }
 }
