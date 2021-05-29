@@ -30,6 +30,18 @@ namespace Forces
             ["Титан"] = 135,
             ["Тритон"] = 77
         };
+
+        private void tbAddedMass_Scroll(object sender, EventArgs e)
+        {
+            addedMass= tbAddedMass.Value;
+
+        }
+
+        private void tbAddedVolume_Scroll(object sender, EventArgs e)
+        {
+            addedVolume = tbAddedVolume.Value;
+        }
+
         Entity[] entities =
         {
             new Entity("Золото", 1930, @"Images\Gold.png"),
@@ -83,7 +95,7 @@ namespace Forces
         public Forces()
         {
             InitializeComponent();
-            item = new Item(R = new Vector(0, 0), V = new Vector(0, 10), 1, 1);
+            item = new Item(new Vector(pbItem.Left, pbItem.Top), new Vector(0, 0), 1, 1);
             string[] Planets = ((IEnumerable<string>)PlanetG.Keys).ToArray(), Areas = areas.Select(x => x.Name).ToArray(), Entities = entities.Select(x => x.Name).ToArray();
             cbPlanets.Items.AddRange(Planets);
             cbAreas.Items.AddRange(Areas);
@@ -93,14 +105,7 @@ namespace Forces
         private void timer_Tick_1(object sender, EventArgs e)
         {
             double dt = timer.Interval / 1000.0;
-            item.Move(dt, Gravity + Buyoancy + AddedBuyoancy + AddedGravity);
-            pbItem.Location = new Point(Convert.ToInt32(item.R.X), Convert.ToInt32(item.R.Y));
-            pbBalloon.Top = pbItem.Top - pbBalloon.Height;
-            pbWeight.Top = pbItem.Top + pbItem.Height;
-        }
-        
-        private void button_Click(object sender, EventArgs e)
-        {
+
             item.Mass = item.Volume * itemDensity;
             Gravity = item.Mass * G;
             Buyoancy = -(areaDensity * G) * item.Volume;
@@ -112,6 +117,16 @@ namespace Forces
             lblItemMass.Text = "Масса тела: " + item.Mass;
             lblArchimed.Text = "Сила тяжести: " + Gravity;
             lblArchimed.Text = "Сила Архимеда: " + Buyoancy;
+
+            item.Move(dt, Gravity + Buyoancy + AddedBuyoancy + AddedGravity);
+            pbItem.Location = new Point(Convert.ToInt32(item.R.X), Convert.ToInt32(item.R.Y));
+            pbBalloon.Top = pbItem.Top - pbBalloon.Height;
+            pbWeight.Top = pbItem.Top + pbItem.Height;
+        }
+        
+        private void button_Click(object sender, EventArgs e)
+        {
+
             timer.Start();
         }
 
