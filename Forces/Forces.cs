@@ -8,7 +8,7 @@ namespace Forces
 {
     public partial class Forces : Form
     {
-        public Vector Gravity, Buyoancy, R = 0, V, AddedBuyoancy, AddedGravity, G = new Vector(0, 981);
+        public Vector Gravity, Buyoancy, R = new Vector(0, 0), V, AddedBuyoancy, AddedGravity, G = new Vector(0, 981);
         public double areaDensity = 1, itemDensity = 1, addedVolume = 0, addedMass = 0;
         Item item;
         Dictionary<string, int> PlanetG = new Dictionary<string, int>

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 public class Vector
 {
@@ -10,8 +9,6 @@ public class Vector
         X = x;
         Y = y;
     }
-
-    public Vector Projection(Vector onVector) => this * onVector / onVector.SquareAbs * onVector;
 
     public static Vector operator +(Vector a, Vector b) => new Vector(a.X + b.X, a.Y + b.Y);
 
