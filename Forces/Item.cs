@@ -5,7 +5,7 @@
         public Item(Vector r, Vector speed, double mass, double volume)
         {
             R = r;
-            Speed = Speed;
+            Speed = speed;
             Mass = mass;
             Volume = volume;
         }
