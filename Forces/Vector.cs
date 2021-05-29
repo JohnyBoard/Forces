@@ -10,6 +10,8 @@ public class Vector
         Y = y;
     }
 
+    public Vector Projection(Vector onVector) => this * onVector / onVector.SquareAbs * onVector;
+
     public static Vector operator +(Vector a, Vector b) => new Vector(a.X + b.X, a.Y + b.Y);
 
     public static Vector operator -(Vector v) => new Vector(-v.X, -v.Y);
@@ -30,5 +32,5 @@ public class Vector
 
     public double SquareAbs => this * this;
 
-    public double Abs => Math.Round(Math.Sqrt(SquareAbs));
+    public double Abs => Math.Round(Math.Sqrt(SquareAbs));        
 }
