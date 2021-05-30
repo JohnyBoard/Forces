@@ -62,6 +62,39 @@ namespace Forces
             new Area("Дизельное топливо", 885, Color.Wheat)
         };
 
+        public Forces()
+        {
+            InitializeComponent();
+            item = new Item(new Vector(pbItem.Left, pbItem.Top), new Vector(0, 0), 1, 1);
+            string[] Planets = ((IEnumerable<string>)PlanetG.Keys).ToArray(), Areas = areas.Select(x => x.Name).ToArray(), Entities = entities.Select(x => x.Name).ToArray();
+            cbPlanets.Items.AddRange(Planets);
+            cbAreas.Items.AddRange(Areas);
+            cbEntities.Items.AddRange(Entities);
+        }
+
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            double dt = timer.Interval / 1000.0;
+            item.Mass = item.Volume * itemDensity;
+            Gravity = item.Mass * G;
+            Buyoancy = -(areaDensity * G) * item.Volume;
+            AddedBuyoancy = -(areaDensity * G) * addedVolume;
+            AddedGravity = addedMass * G;
+            item.Move(dt, Gravity + Buyoancy + AddedBuyoancy + AddedGravity);
+            pbItem.Location = new Point(Convert.ToInt32(item.R.X), Convert.ToInt32(item.R.Y));
+            pbBalloon.Top = pbItem.Top - pbBalloon.Height;
+            pbWeight.Top = pbItem.Top + pbItem.Height;
+            double M = item.Mass + addedMass, V = item.Volume + addedVolume;
+            Vector F1 = Gravity + AddedGravity, F2 = Buyoancy + AddedBuyoancy;
+            lblMass.Text = "Общая масса: " + M;
+            lblVolume.Text = "Общий объём: " + V;
+            lblItemDensity.Text = "Плотность тела: " + itemDensity;
+            lblAreaDensity.Text = "Плотность среды: " + areaDensity;
+            lblGravity.Text = "Сила притяжения: " + F1.Y;
+            lblBuyoancy.Text = "Сила Архимеда: " + Math.Abs(F2.Y);
+        }
+
         private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e) => G = new Vector(0, PlanetG[(string)cbPlanets.SelectedItem]);
 
         private void cbAreas_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,30 +109,6 @@ namespace Forces
             Entity entity = entities.FirstOrDefault(a => a.Name == cbEntities.SelectedItem.ToString());
             itemDensity = entity.Density;
             pbItem.Image = Image.FromFile(entity.Image);
-        }
-
-        public Forces()
-        {
-            InitializeComponent();
-            item = new Item(new Vector(pbItem.Left, pbItem.Top), new Vector(0, 0), 1, 1);
-            string[] Planets = ((IEnumerable<string>)PlanetG.Keys).ToArray(), Areas = areas.Select(x => x.Name).ToArray(), Entities = entities.Select(x => x.Name).ToArray();
-            cbPlanets.Items.AddRange(Planets);
-            cbAreas.Items.AddRange(Areas);
-            cbEntities.Items.AddRange(Entities);
-        }
-
-        private void timer_Tick_1(object sender, EventArgs e)
-        {
-            double dt = timer.Interval / 1000.0;
-            item.Mass = item.Volume * itemDensity;
-            Gravity = item.Mass * G;
-            Buyoancy = -(areaDensity * G) * item.Volume;
-            AddedBuyoancy = -(areaDensity * G) * addedVolume;
-            AddedGravity = addedMass * G;
-            item.Move(dt, Gravity + Buyoancy + AddedBuyoancy + AddedGravity);
-            pbItem.Location = new Point(Convert.ToInt32(item.R.X), Convert.ToInt32(item.R.Y));
-            pbBalloon.Top = pbItem.Top - pbBalloon.Height;
-            pbWeight.Top = pbItem.Top + pbItem.Height;
         }
 
         private void button_Click(object sender, EventArgs e) => timer.Start();
