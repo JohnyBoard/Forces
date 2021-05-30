@@ -90,12 +90,13 @@ namespace Forces
             pbWeight.Top = pbItem.Top + pbItem.Height;
             double M = item.Mass + addedMass, V = item.Volume + addedVolume;
             Vector F1 = Gravity + AddedGravity, F2 = Buyoancy + AddedBuyoancy;
-            lblMass.Text = "Общая масса: " + M;
-            lblVolume.Text = "Общий объём: " + V;
-            lblItemDensity.Text = "Плотность тела: " + itemDensity;
-            lblAreaDensity.Text = "Плотность среды: " + areaDensity;
-            lblGravity.Text = "Сила притяжения: " + F1.Y;
-            lblBuyoancy.Text = "Сила Архимеда: " + Math.Abs(F2.Y);
+            lblMass.Text = "Общая масса: " + M + " кг";
+            lblVolume.Text = "Общий объём: " + V + " м ^ 3";
+            lblItemDensity.Text = "Плотность тела: " + itemDensity + " кг / м ^ 3";
+            lblAreaDensity.Text = "Плотность среды: " + areaDensity + " кг / м ^ 3";
+            lblGravity.Text = "Сила притяжения: " + F1.Y + " H";
+            lblBuyoancy.Text = "Сила Архимеда: " + Math.Abs(F2.Y) + " H";
+            lblG.Text = "Ускорение свободного падения: " + G.Y + " H / кг";
         }
 
         private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e) => G = new Vector(0, PlanetG[(string)cbPlanets.SelectedItem]);
@@ -124,6 +125,11 @@ namespace Forces
                 pbBalloon.Size = new Size((int)(addedVolume * 1000), (int)(addedVolume * 1000));
                 pbBalloon.Show();
             }
+            else
+            {
+                addedVolume = 0;
+                pbBalloon.Hide();
+            }
         }
 
         private void tbVolume_Scroll(object sender, EventArgs e)
@@ -140,6 +146,11 @@ namespace Forces
                 addedMass = tbAddedMass.Value;                
                 pbWeight.Size = new Size((int)addedMass, (int)addedMass);
                 pbWeight.Show();
+            }
+            else
+            {
+                addedMass = 0;
+                pbWeight.Hide();
             }
         }
 

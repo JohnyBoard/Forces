@@ -49,6 +49,7 @@
             this.pbWeight = new System.Windows.Forms.PictureBox();
             this.pbItem = new System.Windows.Forms.PictureBox();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.lblG = new System.Windows.Forms.Label();
             this.tlp.SuspendLayout();
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbAddedMass)).BeginInit();
@@ -69,8 +70,8 @@
             // 
             this.tlp.BackColor = System.Drawing.Color.White;
             this.tlp.ColumnCount = 2;
-            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.5F));
-            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.5F));
+            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.11753F));
+            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.88247F));
             this.tlp.Controls.Add(this.pnlOptions, 0, 0);
             this.tlp.Controls.Add(this.pnlField, 1, 0);
             this.tlp.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -84,6 +85,7 @@
             // pnlOptions
             // 
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pnlOptions.Controls.Add(this.lblG);
             this.pnlOptions.Controls.Add(this.lblInfo);
             this.pnlOptions.Controls.Add(this.btnEnd);
             this.pnlOptions.Controls.Add(this.lblVolume);
@@ -102,7 +104,7 @@
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOptions.Location = new System.Drawing.Point(3, 3);
             this.pnlOptions.Name = "pnlOptions";
-            this.pnlOptions.Size = new System.Drawing.Size(285, 605);
+            this.pnlOptions.Size = new System.Drawing.Size(310, 605);
             this.pnlOptions.TabIndex = 1;
             // 
             // btnEnd
@@ -124,7 +126,7 @@
             // 
             this.lblVolume.AutoSize = true;
             this.lblVolume.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblVolume.Location = new System.Drawing.Point(10, 326);
+            this.lblVolume.Location = new System.Drawing.Point(8, 326);
             this.lblVolume.Name = "lblVolume";
             this.lblVolume.Size = new System.Drawing.Size(106, 19);
             this.lblVolume.TabIndex = 22;
@@ -186,7 +188,7 @@
             this.tbAddedMass.Maximum = 300;
             this.tbAddedMass.Minimum = 30;
             this.tbAddedMass.Name = "tbAddedMass";
-            this.tbAddedMass.Size = new System.Drawing.Size(270, 45);
+            this.tbAddedMass.Size = new System.Drawing.Size(295, 45);
             this.tbAddedMass.TabIndex = 15;
             this.tbAddedMass.Value = 30;
             this.tbAddedMass.Scroll += new System.EventHandler(this.tbAddedMass_Scroll);
@@ -199,7 +201,7 @@
             this.tbAddedVolume.Maximum = 300;
             this.tbAddedVolume.Minimum = 30;
             this.tbAddedVolume.Name = "tbAddedVolume";
-            this.tbAddedVolume.Size = new System.Drawing.Size(270, 45);
+            this.tbAddedVolume.Size = new System.Drawing.Size(295, 45);
             this.tbAddedVolume.TabIndex = 14;
             this.tbAddedVolume.Value = 30;
             this.tbAddedVolume.Scroll += new System.EventHandler(this.tbAddedVolume_Scroll);
@@ -211,7 +213,7 @@
             this.cbPlanets.FormattingEnabled = true;
             this.cbPlanets.Location = new System.Drawing.Point(10, 63);
             this.cbPlanets.Name = "cbPlanets";
-            this.cbPlanets.Size = new System.Drawing.Size(272, 21);
+            this.cbPlanets.Size = new System.Drawing.Size(297, 21);
             this.cbPlanets.TabIndex = 7;
             this.cbPlanets.SelectedIndexChanged += new System.EventHandler(this.cbPlanets_SelectedIndexChanged);
             this.cbPlanets.MouseEnter += new System.EventHandler(this.cbPlanets_MouseEnter);
@@ -222,7 +224,7 @@
             this.cbEntities.FormattingEnabled = true;
             this.cbEntities.Location = new System.Drawing.Point(10, 36);
             this.cbEntities.Name = "cbEntities";
-            this.cbEntities.Size = new System.Drawing.Size(272, 21);
+            this.cbEntities.Size = new System.Drawing.Size(297, 21);
             this.cbEntities.TabIndex = 6;
             this.cbEntities.SelectedIndexChanged += new System.EventHandler(this.cbEntities_SelectedIndexChanged);
             this.cbEntities.MouseEnter += new System.EventHandler(this.cbEntities_MouseEnter);
@@ -233,7 +235,7 @@
             this.cbAreas.FormattingEnabled = true;
             this.cbAreas.Location = new System.Drawing.Point(10, 9);
             this.cbAreas.Name = "cbAreas";
-            this.cbAreas.Size = new System.Drawing.Size(272, 21);
+            this.cbAreas.Size = new System.Drawing.Size(297, 21);
             this.cbAreas.TabIndex = 5;
             this.cbAreas.SelectedIndexChanged += new System.EventHandler(this.cbAreas_SelectedIndexChanged);
             this.cbAreas.MouseEnter += new System.EventHandler(this.cbAreas_MouseEnter);
@@ -260,7 +262,7 @@
             this.tbVolume.Maximum = 300;
             this.tbVolume.Minimum = 30;
             this.tbVolume.Name = "tbVolume";
-            this.tbVolume.Size = new System.Drawing.Size(269, 45);
+            this.tbVolume.Size = new System.Drawing.Size(294, 45);
             this.tbVolume.TabIndex = 1;
             this.tbVolume.Value = 30;
             this.tbVolume.Scroll += new System.EventHandler(this.tbVolume_Scroll);
@@ -273,9 +275,9 @@
             this.pnlField.Controls.Add(this.pbWeight);
             this.pnlField.Controls.Add(this.pbItem);
             this.pnlField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlField.Location = new System.Drawing.Point(294, 3);
+            this.pnlField.Location = new System.Drawing.Point(319, 3);
             this.pnlField.Name = "pnlField";
-            this.pnlField.Size = new System.Drawing.Size(690, 605);
+            this.pnlField.Size = new System.Drawing.Size(665, 605);
             this.pnlField.TabIndex = 0;
             // 
             // pbBalloon
@@ -318,11 +320,21 @@
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfo.Location = new System.Drawing.Point(9, 501);
+            this.lblInfo.Location = new System.Drawing.Point(10, 501);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(58, 22);
             this.lblInfo.TabIndex = 24;
             this.lblInfo.Text = "Инфо";
+            // 
+            // lblG
+            // 
+            this.lblG.AutoSize = true;
+            this.lblG.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblG.Location = new System.Drawing.Point(9, 345);
+            this.lblG.Name = "lblG";
+            this.lblG.Size = new System.Drawing.Size(224, 19);
+            this.lblG.TabIndex = 25;
+            this.lblG.Text = "Ускорение свободного падения:";
             // 
             // Forces
             // 
@@ -368,5 +380,6 @@
         private System.Windows.Forms.Label lblMass;
         private System.Windows.Forms.Button btnEnd;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label lblG;
     }
 }
