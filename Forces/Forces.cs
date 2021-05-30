@@ -70,6 +70,9 @@ namespace Forces
             cbPlanets.Items.AddRange(Planets);
             cbAreas.Items.AddRange(Areas);
             cbEntities.Items.AddRange(Entities);
+            pbBalloon.Hide();
+            pbWeight.Hide();
+            lblInfo.Text = "";
         }
 
 
@@ -114,9 +117,13 @@ namespace Forces
 
         private void tbAddedVolume_Scroll(object sender, EventArgs e)
         {
-            addedVolume = tbAddedVolume.Value;
-            addedVolume /= 1000;
-            pbBalloon.Size = new Size((int)(addedVolume * 1000), (int)(addedVolume * 1000));
+            if (tbAddedVolume.Value > 30)
+            {
+                addedVolume = tbAddedVolume.Value;
+                addedVolume /= 1000;
+                pbBalloon.Size = new Size((int)(addedVolume * 1000), (int)(addedVolume * 1000));
+                pbBalloon.Show();
+            }
         }
 
         private void tbVolume_Scroll(object sender, EventArgs e)
@@ -128,8 +135,12 @@ namespace Forces
         
         private void tbAddedMass_Scroll(object sender, EventArgs e)
         {
-            addedMass = tbAddedMass.Value;
-            pbWeight.Size = new Size((int)addedMass, (int)addedMass);
+            if (tbAddedMass.Value > 30)
+            {
+                addedMass = tbAddedMass.Value;                
+                pbWeight.Size = new Size((int)addedMass, (int)addedMass);
+                pbWeight.Show();
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e) => timer.Start();
@@ -140,10 +151,44 @@ namespace Forces
 
         private void btnEnd_Click(object sender, EventArgs e) => this.Close();
 
-
         private void btnEnd_MouseEnter(object sender, EventArgs e) => btnEnd.BackColor = Color.Red;
 
-
         private void btnEnd_MouseLeave(object sender, EventArgs e) => btnEnd.BackColor = Color.White;
+
+        private void cbAreas_MouseEnter(object sender, EventArgs e) => lblInfo.Text = "Плотность среды";
+
+        private void cbAreas_MouseLeave(object sender, EventArgs e) => lblInfo.Text = "";
+
+        private void cbEntities_MouseEnter(object sender, EventArgs e) => lblInfo.Text = "Плотность тела";
+
+        private void pbBalloon_MouseEnter(object sender, EventArgs e) => lblInfo.Text = "Дополнительный объём";
+
+        private void pbBalloon_MouseLeave(object sender, EventArgs e) => lblInfo.Text = "";
+
+        private void pbItem_MouseEnter(object sender, EventArgs e) => lblInfo.Text = "Тело";
+
+        private void pbItem_MouseLeave(object sender, EventArgs e) => lblInfo.Text = "";
+
+        private void pbWeight_MouseEnter(object sender, EventArgs e) => lblInfo.Text = "Дополнительная масса"; 
+
+        private void pbWeight_MouseLeave(object sender, EventArgs e) => lblInfo.Text = "";
+
+        private void cbEntities_MouseLeave(object sender, EventArgs e) => lblInfo.Text = "";
+
+        private void cbPlanets_MouseEnter(object sender, EventArgs e) => lblInfo.Text = "Небесное тело";
+
+        private void cbPlanets_MouseLeave(object sender, EventArgs e) => lblInfo.Text = "";
+
+        private void tbAddedVolume_MouseEnter(object sender, EventArgs e) => lblInfo.Text = "Дополнительный объём";
+
+        private void tbAddedVolume_MouseLeave(object sender, EventArgs e) => lblInfo.Text = "";
+
+        private void tbVolume_MouseEnter(object sender, EventArgs e) => lblInfo.Text = "Объём тела";
+
+        private void tbVolume_MouseLeave(object sender, EventArgs e) => lblInfo.Text = "";
+
+        private void tbAddedMass_MouseEnter(object sender, EventArgs e) => lblInfo.Text = "Дополнительная масса";
+
+        private void tbAddedMass_MouseLeave(object sender, EventArgs e) => lblInfo.Text = "";
     }
 }
