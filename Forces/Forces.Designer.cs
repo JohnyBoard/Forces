@@ -70,8 +70,8 @@
             // 
             this.tlp.BackColor = System.Drawing.Color.White;
             this.tlp.ColumnCount = 2;
-            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.11753F));
-            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.88247F));
+            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.21885F));
+            this.tlp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.78116F));
             this.tlp.Controls.Add(this.pnlOptions, 0, 0);
             this.tlp.Controls.Add(this.pnlField, 1, 0);
             this.tlp.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -104,7 +104,7 @@
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOptions.Location = new System.Drawing.Point(3, 3);
             this.pnlOptions.Name = "pnlOptions";
-            this.pnlOptions.Size = new System.Drawing.Size(310, 605);
+            this.pnlOptions.Size = new System.Drawing.Size(312, 605);
             this.pnlOptions.TabIndex = 1;
             // 
             // btnEnd
@@ -185,8 +185,8 @@
             // tbAddedMass
             // 
             this.tbAddedMass.Location = new System.Drawing.Point(12, 192);
-            this.tbAddedMass.Maximum = 300;
-            this.tbAddedMass.Minimum = 30;
+            this.tbAddedMass.Maximum = 30;
+            this.tbAddedMass.Minimum = 3;
             this.tbAddedMass.Name = "tbAddedMass";
             this.tbAddedMass.Size = new System.Drawing.Size(295, 45);
             this.tbAddedMass.TabIndex = 15;
@@ -275,9 +275,9 @@
             this.pnlField.Controls.Add(this.pbWeight);
             this.pnlField.Controls.Add(this.pbItem);
             this.pnlField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlField.Location = new System.Drawing.Point(319, 3);
+            this.pnlField.Location = new System.Drawing.Point(321, 3);
             this.pnlField.Name = "pnlField";
-            this.pnlField.Size = new System.Drawing.Size(665, 605);
+            this.pnlField.Size = new System.Drawing.Size(663, 605);
             this.pnlField.TabIndex = 0;
             // 
             // pbBalloon

@@ -105,7 +105,7 @@ namespace Forces
         private void cbAreas_SelectedIndexChanged(object sender, EventArgs e)
         {
             Area area = areas.FirstOrDefault(a => a.Name == cbAreas.SelectedItem.ToString());
-            itemDensity = area.Density;
+            areaDensity = area.Density;
             pnlField.BackColor = area.Color;
         }
 
@@ -121,8 +121,7 @@ namespace Forces
             if (tbAddedVolume.Value > 30)
             {
                 addedVolume = tbAddedVolume.Value;
-                addedVolume /= 1000;
-                pbBalloon.Size = new Size((int)(addedVolume * 1000), (int)(addedVolume * 1000));
+                pbBalloon.Size = new Size((int)(addedVolume), (int)(addedVolume));
                 pbBalloon.Show();
             }
             else
@@ -135,8 +134,7 @@ namespace Forces
         private void tbVolume_Scroll(object sender, EventArgs e)
         {
             item.Volume = tbVolume.Value;
-            item.Volume /= 1000;
-            pbItem.Size = new Size((int)(item.Volume * 1000), (int)(item.Volume * 1000));
+            pbItem.Size = new Size((int)(item.Volume), (int)(item.Volume));
         }
         
         private void tbAddedMass_Scroll(object sender, EventArgs e)
