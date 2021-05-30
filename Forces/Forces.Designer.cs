@@ -114,7 +114,7 @@
             this.btnEnd.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnEnd.Location = new System.Drawing.Point(7, 567);
             this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(275, 35);
+            this.btnEnd.Size = new System.Drawing.Size(300, 35);
             this.btnEnd.TabIndex = 23;
             this.btnEnd.Text = "End";
             this.btnEnd.UseVisualStyleBackColor = false;
@@ -185,8 +185,8 @@
             // tbAddedMass
             // 
             this.tbAddedMass.Location = new System.Drawing.Point(12, 192);
-            this.tbAddedMass.Maximum = 30;
-            this.tbAddedMass.Minimum = 3;
+            this.tbAddedMass.Maximum = 300;
+            this.tbAddedMass.Minimum = 30;
             this.tbAddedMass.Name = "tbAddedMass";
             this.tbAddedMass.Size = new System.Drawing.Size(295, 45);
             this.tbAddedMass.TabIndex = 15;
@@ -248,7 +248,7 @@
             this.btnStart.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnStart.Location = new System.Drawing.Point(7, 526);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(275, 35);
+            this.btnStart.Size = new System.Drawing.Size(300, 35);
             this.btnStart.TabIndex = 2;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
