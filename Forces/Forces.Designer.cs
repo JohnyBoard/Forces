@@ -30,6 +30,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.tlp = new System.Windows.Forms.TableLayoutPanel();
             this.pnlOptions = new System.Windows.Forms.Panel();
+            this.btnEnd = new System.Windows.Forms.Button();
             this.lblVolume = new System.Windows.Forms.Label();
             this.lblMass = new System.Windows.Forms.Label();
             this.lblItemDensity = new System.Windows.Forms.Label();
@@ -41,7 +42,7 @@
             this.cbPlanets = new System.Windows.Forms.ComboBox();
             this.cbEntities = new System.Windows.Forms.ComboBox();
             this.cbAreas = new System.Windows.Forms.ComboBox();
-            this.button = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.tbVolume = new System.Windows.Forms.TrackBar();
             this.pnlField = new System.Windows.Forms.Panel();
             this.pbBalloon = new System.Windows.Forms.PictureBox();
@@ -82,6 +83,7 @@
             // pnlOptions
             // 
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pnlOptions.Controls.Add(this.btnEnd);
             this.pnlOptions.Controls.Add(this.lblVolume);
             this.pnlOptions.Controls.Add(this.lblMass);
             this.pnlOptions.Controls.Add(this.lblItemDensity);
@@ -93,13 +95,28 @@
             this.pnlOptions.Controls.Add(this.cbPlanets);
             this.pnlOptions.Controls.Add(this.cbEntities);
             this.pnlOptions.Controls.Add(this.cbAreas);
-            this.pnlOptions.Controls.Add(this.button);
+            this.pnlOptions.Controls.Add(this.btnStart);
             this.pnlOptions.Controls.Add(this.tbVolume);
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOptions.Location = new System.Drawing.Point(3, 3);
             this.pnlOptions.Name = "pnlOptions";
             this.pnlOptions.Size = new System.Drawing.Size(285, 605);
             this.pnlOptions.TabIndex = 1;
+            // 
+            // btnEnd
+            // 
+            this.btnEnd.BackColor = System.Drawing.Color.White;
+            this.btnEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnd.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnEnd.Location = new System.Drawing.Point(7, 567);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(275, 35);
+            this.btnEnd.TabIndex = 23;
+            this.btnEnd.Text = "End";
+            this.btnEnd.UseVisualStyleBackColor = false;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
+            this.btnEnd.MouseEnter += new System.EventHandler(this.btnEnd_MouseEnter);
+            this.btnEnd.MouseLeave += new System.EventHandler(this.btnEnd_MouseLeave);
             // 
             // lblVolume
             // 
@@ -210,18 +227,20 @@
             this.cbAreas.TabIndex = 5;
             this.cbAreas.SelectedIndexChanged += new System.EventHandler(this.cbAreas_SelectedIndexChanged);
             // 
-            // button
+            // btnStart
             // 
-            this.button.BackColor = System.Drawing.Color.White;
-            this.button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button.Location = new System.Drawing.Point(7, 567);
-            this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(275, 35);
-            this.button.TabIndex = 2;
-            this.button.Text = "Start";
-            this.button.UseVisualStyleBackColor = false;
-            this.button.Click += new System.EventHandler(this.button_Click);
+            this.btnStart.BackColor = System.Drawing.Color.White;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStart.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnStart.Location = new System.Drawing.Point(7, 526);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(275, 35);
+            this.btnStart.TabIndex = 2;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnStart.MouseEnter += new System.EventHandler(this.btnStart_MouseEnter);
+            this.btnStart.MouseLeave += new System.EventHandler(this.btnStart_MouseLeave);
             // 
             // tbVolume
             // 
@@ -309,7 +328,7 @@
         private System.Windows.Forms.ComboBox cbPlanets;
         private System.Windows.Forms.ComboBox cbEntities;
         private System.Windows.Forms.ComboBox cbAreas;
-        private System.Windows.Forms.Button button;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TrackBar tbVolume;
         private System.Windows.Forms.Label lblItemDensity;
         private System.Windows.Forms.Label lblAreaDensity;
@@ -317,5 +336,6 @@
         private System.Windows.Forms.Label lblBuyoancy;
         private System.Windows.Forms.Label lblVolume;
         private System.Windows.Forms.Label lblMass;
+        private System.Windows.Forms.Button btnEnd;
     }
 }

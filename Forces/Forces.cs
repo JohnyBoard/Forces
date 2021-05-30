@@ -97,6 +97,7 @@ namespace Forces
 
         private void cbPlanets_SelectedIndexChanged(object sender, EventArgs e) => G = new Vector(0, PlanetG[(string)cbPlanets.SelectedItem]);
 
+
         private void cbAreas_SelectedIndexChanged(object sender, EventArgs e)
         {
             Area area = areas.FirstOrDefault(a => a.Name == cbAreas.SelectedItem.ToString());
@@ -111,24 +112,38 @@ namespace Forces
             pbItem.Image = Image.FromFile(entity.Image);
         }
 
-        private void button_Click(object sender, EventArgs e) => timer.Start();
-
         private void tbAddedVolume_Scroll(object sender, EventArgs e)
         {
-            addedVolume = tbAddedVolume.Value == 0 ? 1 : tbAddedVolume.Value;
-            pbBalloon.Size = new Size((int)addedVolume, (int)addedVolume);
+            addedVolume = tbAddedVolume.Value;
+            addedVolume /= 1000;
+            pbBalloon.Size = new Size((int)(addedVolume * 1000), (int)(addedVolume * 1000));
         }
 
         private void tbVolume_Scroll(object sender, EventArgs e)
         {
-            item.Volume = tbVolume.Value == 0 ? 1 : tbVolume.Value;
-            pbItem.Size = new Size((int)item.Volume, (int)item.Volume);
+            item.Volume = tbVolume.Value;
+            item.Volume /= 1000;
+            pbItem.Size = new Size((int)(item.Volume * 1000), (int)(item.Volume * 1000));
         }
         
         private void tbAddedMass_Scroll(object sender, EventArgs e)
         {
-            addedMass = tbAddedMass.Value == 0 ? 1 : tbAddedMass.Value;
+            addedMass = tbAddedMass.Value;
             pbWeight.Size = new Size((int)addedMass, (int)addedMass);
         }
+
+        private void btnStart_Click(object sender, EventArgs e) => timer.Start();
+
+        private void btnStart_MouseEnter(object sender, EventArgs e) => btnStart.BackColor = Color.Green;
+
+        private void btnStart_MouseLeave(object sender, EventArgs e) => btnStart.BackColor = Color.White;
+
+        private void btnEnd_Click(object sender, EventArgs e) => this.Close();
+
+
+        private void btnEnd_MouseEnter(object sender, EventArgs e) => btnEnd.BackColor = Color.Red;
+
+
+        private void btnEnd_MouseLeave(object sender, EventArgs e) => btnEnd.BackColor = Color.White;
     }
 }
